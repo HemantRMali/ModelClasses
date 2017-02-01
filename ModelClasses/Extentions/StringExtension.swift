@@ -11,6 +11,7 @@ import Foundation
 
 extension String {
 
+    //MARK:- STRING EXTENSTION
     func isEmptyString() -> Bool {
         
         if self.trimmingCharacters(in: CharacterSet.whitespaces).characters.count == 0{

@@ -9,7 +9,5 @@
 import Foundation
 
 var SERVER_DOMAIN_PATH = "http://wmsit.rathi.com/WMService/api"
-
 var USER_DEFAULTS = UserDefaults.standard
-
 var GET_TOKEN_COUNT   : Int = 0

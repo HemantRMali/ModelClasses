@@ -11,9 +11,11 @@ import Alamofire
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    //MARK:- VAR DECLARATION
     var window: UIWindow?
 
-
+    
+    //MARK:- UIAPPLICATION DELEGATE METHODS
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -44,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    // MARK: - Update Token After 5 Min
+    //MARK:- UPDATE TOKEN AFTER 5 MINS
     func UpdateToken() {
         
         let urlStr = "\(SERVER_DOMAIN_PATH)/v1/security/getToken/31010"
