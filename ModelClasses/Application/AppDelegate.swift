@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //MARK:- VAR DECLARATION
     var window: UIWindow?
-
+    let webServiceCodeBlock = WebService()
     
     //MARK:- UIAPPLICATION DELEGATE METHODS
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func UpdateToken() {
         
         let urlStr = "\(SERVER_DOMAIN_PATH)/v1/security/getToken/31010"
-        Alamofire.request(urlStr, method: .get, parameters: ["":""], encoding: URLEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
+        /*Alamofire.request(urlStr, method: .get, parameters: ["":""], encoding: URLEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
             switch(response.result) {
             case .success(_):
                 if response.result.value != nil{
@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             USER_DEFAULTS.set("", forKey: "Token")
                             if GET_TOKEN_COUNT < 1 {
                                 self.UpdateToken()
-                                GET_TOKEN_COUNT += 1
+                               GET_TOKEN_COUNT += 1
                             }
                         }
                     }
@@ -76,9 +76,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 break
                 
             }
+        }*/
+        
+        webServiceCodeBlock.webServiceCallMethod(parameters: NSDictionary(), forWebServiceCall: urlStr, setHTTPMethod: "GET") { (response, isSuccess) in
+            if isSuccess{
+            print("SUCCESS RESPONSE :",response)
+                let strToken = response.value(forKey: "responseObject") as! String
+                if strToken != "null" || !strToken.isEmptyString() {
+                    USER_DEFAULTS.set(strToken as String, forKey: "Token")
+                    print(USER_DEFAULTS.value(forKey: "Token")!)
+                }else{
+                    USER_DEFAULTS.set("", forKey: "Token")
+                    if GET_TOKEN_COUNT < 1 {
+                        self.UpdateToken()
+                        GET_TOKEN_COUNT += 1
+                    }
+                }
+            }else {
+            print("ERROR")
+            }
         }
     }
-
-
 }
 

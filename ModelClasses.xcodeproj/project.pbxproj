@@ -15,6 +15,8 @@
 		4109ABFF1E40A60D0018BDB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4109ABFE1E40A60D0018BDB7 /* ViewController.swift */; };
 		41947F731E41AEEC005C2BF9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F721E41AEEC005C2BF9 /* Constant.swift */; };
 		41947F761E41B552005C2BF9 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F751E41B552005C2BF9 /* StringExtension.swift */; };
+		41947F791E41D402005C2BF9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F781E41D402005C2BF9 /* WebService.swift */; };
+		41947F7B1E41F5D7005C2BF9 /* MutableDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F7A1E41F5D7005C2BF9 /* MutableDataExtension.swift */; };
 		F28EE928D60C0A3FB15BCB11 /* Pods_ModelClasses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E660C9FAFE085DCECAE6B8F6 /* Pods_ModelClasses.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		4109ABFE1E40A60D0018BDB7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		41947F721E41AEEC005C2BF9 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		41947F751E41B552005C2BF9 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		41947F781E41D402005C2BF9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		41947F7A1E41F5D7005C2BF9 /* MutableDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableDataExtension.swift; sourceTree = "<group>"; };
 		90FF838D3FA80BB337CFD495 /* Pods-ModelClasses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelClasses.release.xcconfig"; path = "Pods/Target Support Files/Pods-ModelClasses/Pods-ModelClasses.release.xcconfig"; sourceTree = "<group>"; };
 		E660C9FAFE085DCECAE6B8F6 /* Pods_ModelClasses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModelClasses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -66,6 +70,7 @@
 		4109ABDE1E4082AE0018BDB7 /* ModelClasses */ = {
 			isa = PBXGroup;
 			children = (
+				41947F771E41D402005C2BF9 /* WebServices */,
 				41947F741E41B4E5005C2BF9 /* Extentions */,
 				4109ABF41E40A55B0018BDB7 /* Application */,
 				4109ABE61E4082AE0018BDB7 /* Assets.xcassets */,
@@ -130,8 +135,17 @@
 			isa = PBXGroup;
 			children = (
 				41947F751E41B552005C2BF9 /* StringExtension.swift */,
+				41947F7A1E41F5D7005C2BF9 /* MutableDataExtension.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		41947F771E41D402005C2BF9 /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				41947F781E41D402005C2BF9 /* WebService.swift */,
+			);
+			path = WebServices;
 			sourceTree = "<group>";
 		};
 		A1111007E05C69CA3A2DECE2 /* Pods */ = {
@@ -277,7 +291,9 @@
 			files = (
 				41947F761E41B552005C2BF9 /* StringExtension.swift in Sources */,
 				4109ABFF1E40A60D0018BDB7 /* ViewController.swift in Sources */,
+				41947F7B1E41F5D7005C2BF9 /* MutableDataExtension.swift in Sources */,
 				4109ABF61E40A57B0018BDB7 /* AppDelegate.swift in Sources */,
+				41947F791E41D402005C2BF9 /* WebService.swift in Sources */,
 				41947F731E41AEEC005C2BF9 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
