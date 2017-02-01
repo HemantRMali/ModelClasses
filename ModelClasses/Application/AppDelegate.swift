@@ -7,7 +7,7 @@
 // test commit - hemant
 
 import UIKit
-
+import Alamofire
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+         Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(UpdateToken), userInfo: nil, repeats: true)
+        UpdateToken()
         return true
     }
 
@@ -39,6 +42,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // MARK: - Update Token After 5 Min
+    func UpdateToken() {
+        
+        let urlStr = "\(SERVER_DOMAIN_PATH)/v1/security/getToken/31010"
+        Alamofire.request(urlStr, method: .get, parameters: ["":""], encoding: URLEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
+            switch(response.result) {
+            case .success(_):
+                if response.result.value != nil{
+                    var res : NSDictionary? = nil
+                    res = response.result.value! as? NSDictionary
+                    
+                    if res?.value(forKey: "status") as! String == "success"{
+                        let strToken : String = res!.value(forKey: "responseObject")! as! String
+                        if strToken != "null" || !strToken.isEmptyString() {
+                            USER_DEFAULTS.set(strToken, forKey: "Token")
+                        }else{
+                            USER_DEFAULTS.set("", forKey: "Token")
+                            if GET_TOKEN_COUNT < 1 {
+                                self.UpdateToken()
+                                GET_TOKEN_COUNT += 1
+                            }
+                        }
+                    }
+                }
+                break
+            case .failure(_):
+                print(response.result.error!)
+                break
+                
+            }
+        }
     }
 
 
