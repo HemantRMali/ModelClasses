@@ -13,14 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //MARK:- VAR DECLARATION
     var window: UIWindow?
-    let webServiceCodeBlock = WebService()
-    
     //MARK:- UIAPPLICATION DELEGATE METHODS
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
          Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(UpdateToken), userInfo: nil, repeats: true)
-       // UpdateToken()
+        GetUUID()
+        UpdateTokenConstanly()
         return true
     }
 
@@ -51,13 +50,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let urlStr = "\(SERVER_DOMAIN_PATH)/v1/security/getToken/31010"
         
-        webServiceCodeBlock.webServiceCallMethod(parameters: NSDictionary(), forWebServiceCall: urlStr, setHTTPMethod: "GET") { (response, isSuccess) in
+        WebService.sharedInstantAPI.webServiceGetMethod(forWebServiceCall: urlStr, setHTTPMethod: "GET") { (response, isSuccess) in
             if isSuccess{
-            print("SUCCESS RESPONSE :",response)
+                print("SUCCESS RESPONSE :",response)
                 let strToken = response.value(forKey: "responseObject") as! String
                 if strToken != "null" || !strToken.isEmptyString() {
                     USER_DEFAULTS.set(strToken as String, forKey: "Token")
-                    print(USER_DEFAULTS.value(forKey: "Token")!)
                 }else{
                     USER_DEFAULTS.set("", forKey: "Token")
                     if GET_TOKEN_COUNT < 1 {
@@ -66,9 +64,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
             }else {
-            print("ERROR")
+                print("Error:",response)
             }
         }
+    }
+    
+    // MARK: - GetUUID
+    func GetUUID () {
+        let uniqueIdentifier: String = UIDevice.current.identifierForVendor!.uuidString
+        // IOS 6+
+        print("UDID:: \(uniqueIdentifier)" )
+        MAC_UUID = uniqueIdentifier
+    }
+    
+    // MARK: - UpdateTokenConstanly
+    func UpdateTokenConstanly() {
+        let delayTime: DispatchTime = DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delayTime, execute: {
+            self.UpdateToken()
+        })
     }
 }
 

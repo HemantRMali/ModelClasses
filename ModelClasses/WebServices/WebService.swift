@@ -14,6 +14,7 @@ import Foundation
 
 class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     
+    static let sharedInstantAPI = WebService()
     var delegate          :WebServiceDelegate!
     var receivedData = NSMutableData()
     
@@ -88,6 +89,52 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
             task.resume()
         }
   
+    }
+    
+    //MARK:- WEBSERVICE_CALL_METHOD
+    func webServiceGetMethod(forWebServiceCall: String, setHTTPMethod: String,successBlock:@escaping (_ responseData : AnyObject,_ isSuccess : Bool)->Void) {
+        
+        let session = URLSession(configuration:URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue .main)
+        
+        let url = URL(string: forWebServiceCall)
+        let urlRequest = URLRequest(url: url!)
+        
+          //1) Custom delegate
+            //2) system provided delegate
+            let task = session.dataTask(with: urlRequest as URLRequest) { data, response, error in
+                // Get responce
+                var json = [String : AnyObject]()
+                do {
+                    json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : AnyObject]
+                    if let httpResponse = response as? HTTPURLResponse {
+                        print("Status code: (\(httpResponse.statusCode))")
+                        
+                        if httpResponse.statusCode == NSURLErrorTimedOut{
+                            print("request time out")
+                        }else{
+                            successBlock(json as AnyObject, true)
+                        }
+                        // do stuff.
+                    }
+                    
+                } catch {
+                    successBlock(json as AnyObject,false)
+                    print(error)
+                    
+                    if let httpResponse = response as? HTTPURLResponse {
+                        print("Status code: (\(httpResponse.statusCode))")
+                        
+                        if httpResponse.statusCode == NSURLErrorTimedOut{
+                            print("request time out")
+                        }else{
+                            successBlock(json as AnyObject, true)
+                        }
+                        // do stuff.
+                    }
+                    print("error : catch block execute")
+                }
+            }
+            task.resume()
     }
     
     func createRequest (parameter: NSDictionary,strURL:NSString) -> NSURLRequest {

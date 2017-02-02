@@ -10,8 +10,6 @@ import UIKit
 import Alamofire
 class ViewController: UIViewController {
 
-    let webServiceCodeBlock = WebService()
-
     @IBOutlet var tblData : UITableView!
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,7 +37,7 @@ class ViewController: UIViewController {
         print(discParameters)
         
         let urlStr = "\(SERVER_DOMAIN_PATH)/v6/BulkDataSync"
-        webServiceCodeBlock.webServiceCallMethod(parameters: discParameters, forWebServiceCall: urlStr, setHTTPMethod: "POST") { (responseData, isSuccess) in
+        WebService.sharedInstantAPI.webServiceCallMethod(parameters: discParameters, forWebServiceCall: urlStr, setHTTPMethod: "POST") { (responseData, isSuccess) in
             if isSuccess {
             print("Response :",responseData)
             }else {
