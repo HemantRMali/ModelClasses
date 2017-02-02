@@ -18,6 +18,7 @@
 		41947F791E41D402005C2BF9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F781E41D402005C2BF9 /* WebService.swift */; };
 		41947F7B1E41F5D7005C2BF9 /* MutableDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F7A1E41F5D7005C2BF9 /* MutableDataExtension.swift */; };
 		41FA03861E4339C000857A08 /* client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA03851E4339C000857A08 /* client.swift */; };
+		41FA03881E43497900857A08 /* responseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA03871E43497900857A08 /* responseObject.swift */; };
 		F28EE928D60C0A3FB15BCB11 /* Pods_ModelClasses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E660C9FAFE085DCECAE6B8F6 /* Pods_ModelClasses.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		41947F781E41D402005C2BF9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		41947F7A1E41F5D7005C2BF9 /* MutableDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableDataExtension.swift; sourceTree = "<group>"; };
 		41FA03851E4339C000857A08 /* client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = client.swift; sourceTree = "<group>"; };
+		41FA03871E43497900857A08 /* responseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = responseObject.swift; sourceTree = "<group>"; };
 		90FF838D3FA80BB337CFD495 /* Pods-ModelClasses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelClasses.release.xcconfig"; path = "Pods/Target Support Files/Pods-ModelClasses/Pods-ModelClasses.release.xcconfig"; sourceTree = "<group>"; };
 		E660C9FAFE085DCECAE6B8F6 /* Pods_ModelClasses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModelClasses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				41FA03851E4339C000857A08 /* client.swift */,
+				41FA03871E43497900857A08 /* responseObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				41FA03861E4339C000857A08 /* client.swift in Sources */,
 				41947F7B1E41F5D7005C2BF9 /* MutableDataExtension.swift in Sources */,
 				4109ABF61E40A57B0018BDB7 /* AppDelegate.swift in Sources */,
+				41FA03881E43497900857A08 /* responseObject.swift in Sources */,
 				41947F791E41D402005C2BF9 /* WebService.swift in Sources */,
 				41947F731E41AEEC005C2BF9 /* Constant.swift in Sources */,
 			);

@@ -12,6 +12,9 @@ import SwiftyJSON
 class ViewController: UIViewController {
 
     @IBOutlet var tblData : UITableView!
+    
+    var clients : [client] = []
+    
     override func viewDidLoad() {
     super.viewDidLoad()
         
@@ -40,9 +43,30 @@ class ViewController: UIViewController {
         let urlStr = "\(SERVER_DOMAIN_PATH)/v6/BulkDataSync"
         WebService.sharedInstantAPI.webServiceCallMethod(parameters: discParameters, forWebServiceCall: urlStr, setHTTPMethod: "POST") { (responseData, isSuccess) in
             if isSuccess {
-            print("Response :",responseData)
-                let jsonResposeData = JSON(responseData)
-                print("jsonResposeData:",jsonResposeData)
+           
+                var discResponseObject = NSDictionary()
+                discResponseObject = (responseData.value(forKey: "responseObject")! as AnyObject) as! NSDictionary
+                
+                var arrEntityDataList = NSArray()
+                arrEntityDataList = discResponseObject.value(forKey: "entityDataList") as! NSArray
+                
+                let tempDic = arrEntityDataList.object(at: 0) as! NSDictionary
+                let responseDataDic = tempDic.object(forKey: "responseData") as! NSDictionary
+                
+                var discResponseData = NSDictionary()
+                discResponseData = responseDataDic.value(forKey: "responseObject") as! NSDictionary
+                
+                var arrTmp = NSArray()
+                arrTmp = discResponseData.value(forKey: "contactsList") as! NSArray
+            
+                print("CONTACTS LIST :",arrTmp)
+                let jsonResposeData = JSON(arrTmp)
+                for i in 0..<jsonResposeData.count{
+                
+                    let singleClient = client(clientJson: jsonResposeData[i])
+                    self.clients .append(singleClient)
+                    print(self.clients[i].firstName)
+                }
             }else {
             print("Error")
             }

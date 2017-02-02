@@ -27,7 +27,6 @@ class client{
         self.address3  = clientJson["address3"].stringValue
         self.partyId   = clientJson["partyId"].stringValue
         self.email     = clientJson["email"].stringValue
-       
     }
 }
 
