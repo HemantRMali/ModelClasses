@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'ModelClasses' do
     pod 'Alamofire', '~> 4.2.0'
+    pod 'SwiftyJSON'
 end

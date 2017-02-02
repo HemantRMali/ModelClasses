@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 class ViewController: UIViewController {
 
     @IBOutlet var tblData : UITableView!
@@ -40,6 +41,8 @@ class ViewController: UIViewController {
         WebService.sharedInstantAPI.webServiceCallMethod(parameters: discParameters, forWebServiceCall: urlStr, setHTTPMethod: "POST") { (responseData, isSuccess) in
             if isSuccess {
             print("Response :",responseData)
+                let jsonResposeData = JSON(responseData)
+                print("jsonResposeData:",jsonResposeData)
             }else {
             print("Error")
             }
