@@ -15,13 +15,6 @@ var USER_DEFAULTS = UserDefaults.standard
 var GET_TOKEN_COUNT   : Int = 0
 
 var MAC_UUID : String = ""
-// MARK: - GetUUID
-func GetUUID () {
-    
-    let uniqueIdentifier: String = UIDevice.current.identifierForVendor!.uuidString
-    // IOS 6+
-    print("UDID:: \(uniqueIdentifier)" )
-    MAC_UUID = uniqueIdentifier
-}
+
 
     

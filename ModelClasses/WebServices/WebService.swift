@@ -46,11 +46,8 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     func webServiceCallMethod(parameters: NSDictionary, forWebServiceCall: String, setHTTPMethod: String,successBlock:@escaping (_ responseData : AnyObject,_ isSuccess : Bool)->Void) {
         
         let session = URLSession(configuration:URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue .main)
-        let url: NSURL = NSURL(string: forWebServiceCall)!
-        let urlRequest = NSMutableURLRequest(url: url as URL)
-        urlRequest.httpMethod = setHTTPMethod
-        urlRequest.timeoutInterval = 60
-        urlRequest .addValue("bFcwUEJUN0lhekVkREVZTzduVHQ=", forHTTPHeaderField: "Api-Key")
+        let urlRequest = createRequest(parameter: parameters, strURL: forWebServiceCall as NSString)
+        
         if (try? JSONSerialization.data(withJSONObject: parameters, options: [])) != nil {
         
             //1) Custom delegate
@@ -93,6 +90,41 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
   
     }
     
+    func createRequest (parameter: NSDictionary,strURL:NSString) -> NSURLRequest {
+        
+        let TOKEN : String! = USER_DEFAULTS.value(forKey: "Token") as! String!
+        var request = NSMutableURLRequest()
+        if TOKEN != nil{
+            let url = URL(string: strURL as String)!
+            request = NSMutableURLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue(TOKEN, forHTTPHeaderField: "Token")
+            request.setValue("31010",forHTTPHeaderField: "sourceSystemId")
+            request.setValue("27808",forHTTPHeaderField: "buId")
+            request.setValue(MAC_UUID,forHTTPHeaderField: "macId")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = ConvertDictionaryToJsonString(object: parameter)
+        }
+        return request
+    }
+    
+    func ConvertDictionaryToJsonString(object : NSDictionary) -> Data {
+        var jsonData : Data = Data()
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: object, options: .prettyPrinted)
+            // here "jsonData" is the dictionary encoded in JSON data
+            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
+            // here "decoded" is an `AnyObject` decoded from JSON data
+            // you can now cast it with the right type
+            if let dictFromJSON = decoded as? [String:String] {
+                print(dictFromJSON)
+                // use dictFromJSON
+            }
+        } catch let error as NSError {
+            print(error)
+        }
+        return jsonData
+    }
     //MARK:- UPLOAD_IMAGE_WEBSERVICE_CALL_METHOD
     func UploadImagesWebServiceCallMethod(parameters: NSDictionary, UIImage arrImg: NSArray, withImageControl arrImgKey: NSArray, forWebServiceCall: String, setHTTPMethod: String,successBlock:@escaping (_ responseData:AnyObject,_ isSuccess:Bool)->Void) {
         
@@ -162,7 +194,6 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
                 }
         }
         body.appendString(string: "--\(boundary)--\r\n")
-        //        NSLog("data %@",NSString(data: body, encoding: NSUTF8StringEncoding)!);
         return body
     }
     

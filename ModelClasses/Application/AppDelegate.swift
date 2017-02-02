@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
          Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(UpdateToken), userInfo: nil, repeats: true)
-        UpdateToken()
+       // UpdateToken()
         return true
     }
 
@@ -50,33 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func UpdateToken() {
         
         let urlStr = "\(SERVER_DOMAIN_PATH)/v1/security/getToken/31010"
-        /*Alamofire.request(urlStr, method: .get, parameters: ["":""], encoding: URLEncoding.default, headers: nil).responseJSON { (response:DataResponse<Any>) in
-            switch(response.result) {
-            case .success(_):
-                if response.result.value != nil{
-                    var res : NSDictionary? = nil
-                    res = response.result.value! as? NSDictionary
-                    
-                    if res?.value(forKey: "status") as! String == "success"{
-                        let strToken : String = res!.value(forKey: "responseObject")! as! String
-                        if strToken != "null" || !strToken.isEmptyString() {
-                            USER_DEFAULTS.set(strToken, forKey: "Token")
-                        }else{
-                            USER_DEFAULTS.set("", forKey: "Token")
-                            if GET_TOKEN_COUNT < 1 {
-                                self.UpdateToken()
-                               GET_TOKEN_COUNT += 1
-                            }
-                        }
-                    }
-                }
-                break
-            case .failure(_):
-                print(response.result.error!)
-                break
-                
-            }
-        }*/
         
         webServiceCodeBlock.webServiceCallMethod(parameters: NSDictionary(), forWebServiceCall: urlStr, setHTTPMethod: "GET") { (response, isSuccess) in
             if isSuccess{
