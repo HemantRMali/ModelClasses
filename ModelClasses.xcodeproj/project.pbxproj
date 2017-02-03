@@ -17,6 +17,15 @@
 		41947F761E41B552005C2BF9 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F751E41B552005C2BF9 /* StringExtension.swift */; };
 		41947F791E41D402005C2BF9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F781E41D402005C2BF9 /* WebService.swift */; };
 		41947F7B1E41F5D7005C2BF9 /* MutableDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F7A1E41F5D7005C2BF9 /* MutableDataExtension.swift */; };
+		41D254871E4457FF00ABA692 /* MCClientListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254861E4457FF00ABA692 /* MCClientListCell.swift */; };
+		41D2548B1E4462E900ABA692 /* MCClientListTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2548A1E4462E900ABA692 /* MCClientListTable.swift */; };
+		41D254951E44790000ABA692 /* ContactsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2548E1E44790000ABA692 /* ContactsList.swift */; };
+		41D254961E44790000ABA692 /* ContactSummaryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2548F1E44790000ABA692 /* ContactSummaryList.swift */; };
+		41D254971E44790000ABA692 /* DocumentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254901E44790000ABA692 /* DocumentList.swift */; };
+		41D254981E44790000ABA692 /* EntityDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254911E44790000ABA692 /* EntityDataList.swift */; };
+		41D254991E44790000ABA692 /* NomineeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254921E44790000ABA692 /* NomineeList.swift */; };
+		41D2549A1E44790000ABA692 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254931E44790000ABA692 /* ResponseData.swift */; };
+		41D2549B1E44790000ABA692 /* ResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254941E44790000ABA692 /* ResponseObject.swift */; };
 		41FA03861E4339C000857A08 /* client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA03851E4339C000857A08 /* client.swift */; };
 		41FA03881E43497900857A08 /* responseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA03871E43497900857A08 /* responseObject.swift */; };
 		F28EE928D60C0A3FB15BCB11 /* Pods_ModelClasses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E660C9FAFE085DCECAE6B8F6 /* Pods_ModelClasses.framework */; };
@@ -35,6 +44,15 @@
 		41947F751E41B552005C2BF9 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		41947F781E41D402005C2BF9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		41947F7A1E41F5D7005C2BF9 /* MutableDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableDataExtension.swift; sourceTree = "<group>"; };
+		41D254861E4457FF00ABA692 /* MCClientListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCClientListCell.swift; sourceTree = "<group>"; };
+		41D2548A1E4462E900ABA692 /* MCClientListTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCClientListTable.swift; sourceTree = "<group>"; };
+		41D2548E1E44790000ABA692 /* ContactsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsList.swift; sourceTree = "<group>"; };
+		41D2548F1E44790000ABA692 /* ContactSummaryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSummaryList.swift; sourceTree = "<group>"; };
+		41D254901E44790000ABA692 /* DocumentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentList.swift; sourceTree = "<group>"; };
+		41D254911E44790000ABA692 /* EntityDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityDataList.swift; sourceTree = "<group>"; };
+		41D254921E44790000ABA692 /* NomineeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomineeList.swift; sourceTree = "<group>"; };
+		41D254931E44790000ABA692 /* ResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		41D254941E44790000ABA692 /* ResponseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObject.swift; sourceTree = "<group>"; };
 		41FA03851E4339C000857A08 /* client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = client.swift; sourceTree = "<group>"; };
 		41FA03871E43497900857A08 /* responseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = responseObject.swift; sourceTree = "<group>"; };
 		90FF838D3FA80BB337CFD495 /* Pods-ModelClasses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelClasses.release.xcconfig"; path = "Pods/Target Support Files/Pods-ModelClasses/Pods-ModelClasses.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,15 +92,15 @@
 		4109ABDE1E4082AE0018BDB7 /* ModelClasses */ = {
 			isa = PBXGroup;
 			children = (
-				41947F771E41D402005C2BF9 /* WebServices */,
-				41947F741E41B4E5005C2BF9 /* Extentions */,
 				4109ABF41E40A55B0018BDB7 /* Application */,
 				4109ABE61E4082AE0018BDB7 /* Assets.xcassets */,
 				41947F711E41AED2005C2BF9 /* Constant */,
 				4109ABF11E40A5410018BDB7 /* Controllers */,
+				41947F741E41B4E5005C2BF9 /* Extentions */,
 				4109ABF21E40A5410018BDB7 /* Models */,
 				4109ABF91E40A5B50018BDB7 /* Storyboard */,
 				4109ABF31E40A5410018BDB7 /* Views */,
+				41947F771E41D402005C2BF9 /* WebServices */,
 			);
 			path = ModelClasses;
 			sourceTree = "<group>";
@@ -98,6 +116,7 @@
 		4109ABF21E40A5410018BDB7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				41D2548D1E44790000ABA692 /* ClientList */,
 				41FA03851E4339C000857A08 /* client.swift */,
 				41FA03871E43497900857A08 /* responseObject.swift */,
 			);
@@ -107,6 +126,8 @@
 		4109ABF31E40A5410018BDB7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				41D254861E4457FF00ABA692 /* MCClientListCell.swift */,
+				41D2548A1E4462E900ABA692 /* MCClientListTable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,6 +173,20 @@
 				41947F781E41D402005C2BF9 /* WebService.swift */,
 			);
 			path = WebServices;
+			sourceTree = "<group>";
+		};
+		41D2548D1E44790000ABA692 /* ClientList */ = {
+			isa = PBXGroup;
+			children = (
+				41D2548E1E44790000ABA692 /* ContactsList.swift */,
+				41D2548F1E44790000ABA692 /* ContactSummaryList.swift */,
+				41D254901E44790000ABA692 /* DocumentList.swift */,
+				41D254911E44790000ABA692 /* EntityDataList.swift */,
+				41D254921E44790000ABA692 /* NomineeList.swift */,
+				41D254931E44790000ABA692 /* ResponseData.swift */,
+				41D254941E44790000ABA692 /* ResponseObject.swift */,
+			);
+			path = ClientList;
 			sourceTree = "<group>";
 		};
 		A1111007E05C69CA3A2DECE2 /* Pods */ = {
@@ -296,13 +331,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				41947F761E41B552005C2BF9 /* StringExtension.swift in Sources */,
+				41D2548B1E4462E900ABA692 /* MCClientListTable.swift in Sources */,
 				4109ABFF1E40A60D0018BDB7 /* ViewController.swift in Sources */,
 				41FA03861E4339C000857A08 /* client.swift in Sources */,
+				41D254981E44790000ABA692 /* EntityDataList.swift in Sources */,
 				41947F7B1E41F5D7005C2BF9 /* MutableDataExtension.swift in Sources */,
+				41D2549A1E44790000ABA692 /* ResponseData.swift in Sources */,
+				41D254991E44790000ABA692 /* NomineeList.swift in Sources */,
 				4109ABF61E40A57B0018BDB7 /* AppDelegate.swift in Sources */,
 				41FA03881E43497900857A08 /* responseObject.swift in Sources */,
+				41D2549B1E44790000ABA692 /* ResponseObject.swift in Sources */,
+				41D254971E44790000ABA692 /* DocumentList.swift in Sources */,
+				41D254871E4457FF00ABA692 /* MCClientListCell.swift in Sources */,
 				41947F791E41D402005C2BF9 /* WebService.swift in Sources */,
+				41D254961E44790000ABA692 /* ContactSummaryList.swift in Sources */,
 				41947F731E41AEEC005C2BF9 /* Constant.swift in Sources */,
+				41D254951E44790000ABA692 /* ContactsList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

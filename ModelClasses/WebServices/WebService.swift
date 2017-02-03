@@ -56,6 +56,11 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
             let task = session.dataTask(with: urlRequest as URLRequest) { data, response, error in
                 // Get responce
                 var json = [String : AnyObject]()
+                
+                guard (data != nil) || response != nil else{
+                    return successBlock(json as AnyObject,false)
+                }
+                
                 do {
                     json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : AnyObject]
                     if let httpResponse = response as? HTTPURLResponse {
@@ -100,7 +105,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         let urlRequest = URLRequest(url: url!)
         
           //1) Custom delegate
-            //2) system provided delegate
+          //2) system provided delegate
             let task = session.dataTask(with: urlRequest as URLRequest) { data, response, error in
                 // Get responce
                 var json = [String : AnyObject]()

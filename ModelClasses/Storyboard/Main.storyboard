@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,21 +20,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fuO-j0-FJr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="148" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fuO-j0-FJr" customClass="MCClientListTable" customModule="ModelClasses" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="clientListCell" rowHeight="148" id="pMb-ak-fiC" customClass="MCClientListCell" customModule="ModelClasses" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="148"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pMb-ak-fiC" id="3eM-j6-20F">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="147"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtH-sC-ux2" userLabel="lblFirstName">
+                                                    <rect key="frame" x="15" y="24" width="347" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LastName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMF-I2-Ea7" userLabel="lblLastName">
+                                                    <rect key="frame" x="15" y="53" width="347" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PartyId" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLc-1v-60I" userLabel="lblPartyId">
+                                                    <rect key="frame" x="15" y="82" width="347" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48T-hp-0dw" userLabel="lblEmail">
+                                                    <rect key="frame" x="15" y="111" width="347" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MLc-1v-60I" firstAttribute="trailing" secondItem="vMF-I2-Ea7" secondAttribute="trailing" id="0DZ-Tj-11M"/>
+                                                <constraint firstItem="48T-hp-0dw" firstAttribute="leading" secondItem="MLc-1v-60I" secondAttribute="leading" id="5Qh-ZF-u5w"/>
+                                                <constraint firstItem="vMF-I2-Ea7" firstAttribute="leading" secondItem="ZtH-sC-ux2" secondAttribute="leading" id="Hlb-xe-EE6"/>
+                                                <constraint firstItem="ZtH-sC-ux2" firstAttribute="top" secondItem="3eM-j6-20F" secondAttribute="top" constant="24" id="Hqa-AS-jrw"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZtH-sC-ux2" secondAttribute="trailing" constant="13" id="O2P-UY-5OI"/>
+                                                <constraint firstItem="48T-hp-0dw" firstAttribute="trailing" secondItem="MLc-1v-60I" secondAttribute="trailing" id="Odq-5A-xvZ"/>
+                                                <constraint firstItem="ZtH-sC-ux2" firstAttribute="leading" secondItem="3eM-j6-20F" secondAttribute="leading" constant="15" id="Qeb-Ox-E37"/>
+                                                <constraint firstItem="vMF-I2-Ea7" firstAttribute="top" secondItem="ZtH-sC-ux2" secondAttribute="bottom" constant="8" id="TGJ-Di-uzK"/>
+                                                <constraint firstItem="48T-hp-0dw" firstAttribute="top" secondItem="MLc-1v-60I" secondAttribute="bottom" constant="8" id="WNV-NK-uJT"/>
+                                                <constraint firstItem="MLc-1v-60I" firstAttribute="top" secondItem="vMF-I2-Ea7" secondAttribute="bottom" constant="8" id="g4L-ZQ-84h"/>
+                                                <constraint firstItem="MLc-1v-60I" firstAttribute="leading" secondItem="vMF-I2-Ea7" secondAttribute="leading" id="jUZ-7K-Sxx"/>
+                                                <constraint firstItem="vMF-I2-Ea7" firstAttribute="trailing" secondItem="ZtH-sC-ux2" secondAttribute="trailing" id="uIf-dI-doU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblEmail" destination="48T-hp-0dw" id="w9M-f3-1fa"/>
+                                            <outlet property="lblFirstName" destination="ZtH-sC-ux2" id="su6-Wv-Mnv"/>
+                                            <outlet property="lblLastName" destination="vMF-I2-Ea7" id="Dkr-gJ-xM4"/>
+                                            <outlet property="lblPartyId" destination="MLc-1v-60I" id="Xqo-54-YZW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fuO-j0-FJr" secondAttribute="trailing" id="FCy-6C-Xzv"/>
+                            <constraint firstItem="fuO-j0-FJr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Mdy-uG-cWA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fuO-j0-FJr" secondAttribute="bottom" id="cKs-A1-e7p"/>
+                            <constraint firstItem="fuO-j0-FJr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xYR-hJ-aaC"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="tblData" destination="fuO-j0-FJr" id="xaW-e6-ZMj"/>
+                        <outlet property="tblClientList" destination="fuO-j0-FJr" id="XPg-97-Y04"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="123.68815592203899"/>
+            <point key="canvasLocation" x="57" y="13"/>
         </scene>
     </scenes>
 </document>

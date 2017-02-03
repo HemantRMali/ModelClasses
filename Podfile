@@ -3,6 +3,6 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'ModelClasses' do
-    pod 'Alamofire', '~> 4.2.0'
     pod 'SwiftyJSON'
+    pod 'ReachabilitySwift', '~> 3'
 end

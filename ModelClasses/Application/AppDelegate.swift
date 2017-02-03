@@ -7,22 +7,24 @@
 // test commit - hemant
 
 import UIKit
-import Alamofire
+import ReachabilitySwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //MARK:- VAR DECLARATION
     var window: UIWindow?
+    var reachability = Reachability()!
     //MARK:- UIAPPLICATION DELEGATE METHODS
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
          Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(UpdateToken), userInfo: nil, repeats: true)
         GetUUID()
+        setupRechability()
         UpdateTokenConstanly()
         return true
     }
-
+   
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -59,8 +61,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }else{
                     USER_DEFAULTS.set("", forKey: "Token")
                     if GET_TOKEN_COUNT < 1 {
-                        self.UpdateToken()
-                        GET_TOKEN_COUNT += 1
+                        if isInternetAvailable{
+                            self.UpdateToken()
+                            GET_TOKEN_COUNT += 1
+                        }
                     }
                 }
             }else {
@@ -69,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    // MARK: - GetUUID
+    //MARK: - GetUUID
     func GetUUID () {
         let uniqueIdentifier: String = UIDevice.current.identifierForVendor!.uuidString
         // IOS 6+
@@ -77,12 +81,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MAC_UUID = uniqueIdentifier
     }
     
-    // MARK: - UpdateTokenConstanly
+    //MARK:- UpdateTokenConstanly
     func UpdateTokenConstanly() {
         let delayTime: DispatchTime = DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(deadline: delayTime, execute: {
-            self.UpdateToken()
+            if isInternetAvailable{
+                self.UpdateToken()
+            }
         })
+    }
+   
+    //MARK:- setupRechability
+    func setupRechability(){
+        reachability.stopNotifier()
+        NotificationCenter.default.removeObserver(self,
+                                                  name: ReachabilityChangedNotification,
+                                                  object: reachability)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+    }
+    
+    //MARK:- reachabilityChanged
+    func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        if reachability.isReachable {
+            if reachability.isReachableViaWiFi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+            isInternetAvailable = true
+            UpdateToken()
+        } else {
+            isInternetAvailable = false
+            print("Network not reachable")
+        }
     }
 }
 
