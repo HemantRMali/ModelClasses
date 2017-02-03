@@ -40,8 +40,11 @@ class ViewController: UIViewController {
             arrRequestDataList .add(discRequestDataList)
             discParameters .setObject(arrEntityDataList, forKey: "entityDataList" as NSCopying)
             let urlStr = "\(SERVER_DOMAIN_PATH)/v6/BulkDataSync"
-            WebService.sharedInstantAPI.webServiceCallMethod(parameters: discParameters, forWebServiceCall: urlStr, setHTTPMethod: "POST") { (responseData, isSuccess) in
+            
+            showHud()
+            SharedInstance.sharedAPI.webServiceCallMethod(parameters: discParameters, forWebServiceCall: urlStr, setHTTPMethod: "POST") { (responseData, isSuccess) in
                 if isSuccess {
+                    self.hideHud()
                     if responseData.value(forKey: "status") as! String == "success"{
                         var discResponseObject = NSDictionary()
                         discResponseObject = (responseData.value(forKey: "responseObject")! as AnyObject) as! NSDictionary
@@ -65,6 +68,7 @@ class ViewController: UIViewController {
                         }
                         self.tblClientList.dataSourceArray = self.clients
                     }else {
+                        self.hideHud()
                         self.showAlert(title: APP_NAME, message: "Oops!!!, Someting went wrong.")
                         print("responseData:",responseData)
                     }

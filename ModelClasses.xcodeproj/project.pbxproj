@@ -13,10 +13,7 @@
 		4109ABFC1E40A5E30018BDB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4109ABFA1E40A5E30018BDB7 /* LaunchScreen.storyboard */; };
 		4109ABFD1E40A5E30018BDB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4109ABFB1E40A5E30018BDB7 /* Main.storyboard */; };
 		4109ABFF1E40A60D0018BDB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4109ABFE1E40A60D0018BDB7 /* ViewController.swift */; };
-		41947F731E41AEEC005C2BF9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F721E41AEEC005C2BF9 /* Constant.swift */; };
-		41947F761E41B552005C2BF9 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F751E41B552005C2BF9 /* StringExtension.swift */; };
 		41947F791E41D402005C2BF9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F781E41D402005C2BF9 /* WebService.swift */; };
-		41947F7B1E41F5D7005C2BF9 /* MutableDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F7A1E41F5D7005C2BF9 /* MutableDataExtension.swift */; };
 		41D254871E4457FF00ABA692 /* MCClientListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254861E4457FF00ABA692 /* MCClientListCell.swift */; };
 		41D2548B1E4462E900ABA692 /* MCClientListTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2548A1E4462E900ABA692 /* MCClientListTable.swift */; };
 		41D254951E44790000ABA692 /* ContactsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2548E1E44790000ABA692 /* ContactsList.swift */; };
@@ -26,6 +23,13 @@
 		41D254991E44790000ABA692 /* NomineeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254921E44790000ABA692 /* NomineeList.swift */; };
 		41D2549A1E44790000ABA692 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254931E44790000ABA692 /* ResponseData.swift */; };
 		41D2549B1E44790000ABA692 /* ResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254941E44790000ABA692 /* ResponseObject.swift */; };
+		41D255811E44C1B300ABA692 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D255801E44C1B300ABA692 /* Constant.swift */; };
+		41D255881E44C1E600ABA692 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 41D255841E44C1E600ABA692 /* LICENSE */; };
+		41D255891E44C1E600ABA692 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D255861E44C1E600ABA692 /* MBProgressHUD.m */; };
+		41D2558A1E44C1E600ABA692 /* README.mdown in Sources */ = {isa = PBXBuildFile; fileRef = 41D255871E44C1E600ABA692 /* README.mdown */; };
+		41D2558E1E44C21900ABA692 /* MutableDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2558C1E44C21900ABA692 /* MutableDataExtension.swift */; };
+		41D2558F1E44C21900ABA692 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2558D1E44C21900ABA692 /* StringExtension.swift */; };
+		41D255921E44C25F00ABA692 /* SharedInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D255911E44C25F00ABA692 /* SharedInstance.swift */; };
 		41FA03861E4339C000857A08 /* client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA03851E4339C000857A08 /* client.swift */; };
 		41FA03881E43497900857A08 /* responseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA03871E43497900857A08 /* responseObject.swift */; };
 		F28EE928D60C0A3FB15BCB11 /* Pods_ModelClasses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E660C9FAFE085DCECAE6B8F6 /* Pods_ModelClasses.framework */; };
@@ -40,10 +44,7 @@
 		4109ABFA1E40A5E30018BDB7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4109ABFB1E40A5E30018BDB7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4109ABFE1E40A60D0018BDB7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		41947F721E41AEEC005C2BF9 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		41947F751E41B552005C2BF9 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		41947F781E41D402005C2BF9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
-		41947F7A1E41F5D7005C2BF9 /* MutableDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableDataExtension.swift; sourceTree = "<group>"; };
 		41D254861E4457FF00ABA692 /* MCClientListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCClientListCell.swift; sourceTree = "<group>"; };
 		41D2548A1E4462E900ABA692 /* MCClientListTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCClientListTable.swift; sourceTree = "<group>"; };
 		41D2548E1E44790000ABA692 /* ContactsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsList.swift; sourceTree = "<group>"; };
@@ -53,6 +54,15 @@
 		41D254921E44790000ABA692 /* NomineeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomineeList.swift; sourceTree = "<group>"; };
 		41D254931E44790000ABA692 /* ResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		41D254941E44790000ABA692 /* ResponseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObject.swift; sourceTree = "<group>"; };
+		41D2557E1E44BD5900ABA692 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		41D255801E44C1B300ABA692 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		41D255841E44C1E600ABA692 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		41D255851E44C1E600ABA692 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		41D255861E44C1E600ABA692 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		41D255871E44C1E600ABA692 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
+		41D2558C1E44C21900ABA692 /* MutableDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableDataExtension.swift; sourceTree = "<group>"; };
+		41D2558D1E44C21900ABA692 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		41D255911E44C25F00ABA692 /* SharedInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedInstance.swift; sourceTree = "<group>"; };
 		41FA03851E4339C000857A08 /* client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = client.swift; sourceTree = "<group>"; };
 		41FA03871E43497900857A08 /* responseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = responseObject.swift; sourceTree = "<group>"; };
 		90FF838D3FA80BB337CFD495 /* Pods-ModelClasses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelClasses.release.xcconfig"; path = "Pods/Target Support Files/Pods-ModelClasses/Pods-ModelClasses.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,9 +104,7 @@
 			children = (
 				4109ABF41E40A55B0018BDB7 /* Application */,
 				4109ABE61E4082AE0018BDB7 /* Assets.xcassets */,
-				41947F711E41AED2005C2BF9 /* Constant */,
 				4109ABF11E40A5410018BDB7 /* Controllers */,
-				41947F741E41B4E5005C2BF9 /* Extentions */,
 				4109ABF21E40A5410018BDB7 /* Models */,
 				4109ABF91E40A5B50018BDB7 /* Storyboard */,
 				4109ABF31E40A5410018BDB7 /* Views */,
@@ -116,6 +124,10 @@
 		4109ABF21E40A5410018BDB7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				41D255901E44C24D00ABA692 /* SharedInstance */,
+				41D2558B1E44C21900ABA692 /* Extentions */,
+				41D255821E44C1E600ABA692 /* HelperClass */,
+				41D2557F1E44C1B300ABA692 /* Constant */,
 				41D2548D1E44790000ABA692 /* ClientList */,
 				41FA03851E4339C000857A08 /* client.swift */,
 				41FA03871E43497900857A08 /* responseObject.swift */,
@@ -135,6 +147,7 @@
 		4109ABF41E40A55B0018BDB7 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				41D2557E1E44BD5900ABA692 /* Bridging-Header.h */,
 				4109ABF71E40A5950018BDB7 /* Info.plist */,
 				4109ABF51E40A57B0018BDB7 /* AppDelegate.swift */,
 			);
@@ -148,23 +161,6 @@
 				4109ABFB1E40A5E30018BDB7 /* Main.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		41947F711E41AED2005C2BF9 /* Constant */ = {
-			isa = PBXGroup;
-			children = (
-				41947F721E41AEEC005C2BF9 /* Constant.swift */,
-			);
-			path = Constant;
-			sourceTree = "<group>";
-		};
-		41947F741E41B4E5005C2BF9 /* Extentions */ = {
-			isa = PBXGroup;
-			children = (
-				41947F751E41B552005C2BF9 /* StringExtension.swift */,
-				41947F7A1E41F5D7005C2BF9 /* MutableDataExtension.swift */,
-			);
-			path = Extentions;
 			sourceTree = "<group>";
 		};
 		41947F771E41D402005C2BF9 /* WebServices */ = {
@@ -187,6 +183,50 @@
 				41D254941E44790000ABA692 /* ResponseObject.swift */,
 			);
 			path = ClientList;
+			sourceTree = "<group>";
+		};
+		41D2557F1E44C1B300ABA692 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				41D255801E44C1B300ABA692 /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		41D255821E44C1E600ABA692 /* HelperClass */ = {
+			isa = PBXGroup;
+			children = (
+				41D255831E44C1E600ABA692 /* MBProgressHUD */,
+			);
+			path = HelperClass;
+			sourceTree = "<group>";
+		};
+		41D255831E44C1E600ABA692 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				41D255841E44C1E600ABA692 /* LICENSE */,
+				41D255851E44C1E600ABA692 /* MBProgressHUD.h */,
+				41D255861E44C1E600ABA692 /* MBProgressHUD.m */,
+				41D255871E44C1E600ABA692 /* README.mdown */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		41D2558B1E44C21900ABA692 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				41D2558C1E44C21900ABA692 /* MutableDataExtension.swift */,
+				41D2558D1E44C21900ABA692 /* StringExtension.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		41D255901E44C24D00ABA692 /* SharedInstance */ = {
+			isa = PBXGroup;
+			children = (
+				41D255911E44C25F00ABA692 /* SharedInstance.swift */,
+			);
+			path = SharedInstance;
 			sourceTree = "<group>";
 		};
 		A1111007E05C69CA3A2DECE2 /* Pods */ = {
@@ -268,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41D255881E44C1E600ABA692 /* LICENSE in Resources */,
 				4109ABFC1E40A5E30018BDB7 /* LaunchScreen.storyboard in Resources */,
 				4109ABF81E40A5950018BDB7 /* Info.plist in Resources */,
 				4109ABE71E4082AE0018BDB7 /* Assets.xcassets in Resources */,
@@ -330,12 +371,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41947F761E41B552005C2BF9 /* StringExtension.swift in Sources */,
 				41D2548B1E4462E900ABA692 /* MCClientListTable.swift in Sources */,
 				4109ABFF1E40A60D0018BDB7 /* ViewController.swift in Sources */,
 				41FA03861E4339C000857A08 /* client.swift in Sources */,
 				41D254981E44790000ABA692 /* EntityDataList.swift in Sources */,
-				41947F7B1E41F5D7005C2BF9 /* MutableDataExtension.swift in Sources */,
+				41D255891E44C1E600ABA692 /* MBProgressHUD.m in Sources */,
+				41D255811E44C1B300ABA692 /* Constant.swift in Sources */,
+				41D2558F1E44C21900ABA692 /* StringExtension.swift in Sources */,
+				41D2558A1E44C1E600ABA692 /* README.mdown in Sources */,
 				41D2549A1E44790000ABA692 /* ResponseData.swift in Sources */,
 				41D254991E44790000ABA692 /* NomineeList.swift in Sources */,
 				4109ABF61E40A57B0018BDB7 /* AppDelegate.swift in Sources */,
@@ -345,8 +388,9 @@
 				41D254871E4457FF00ABA692 /* MCClientListCell.swift in Sources */,
 				41947F791E41D402005C2BF9 /* WebService.swift in Sources */,
 				41D254961E44790000ABA692 /* ContactSummaryList.swift in Sources */,
-				41947F731E41AEEC005C2BF9 /* Constant.swift in Sources */,
+				41D2558E1E44C21900ABA692 /* MutableDataExtension.swift in Sources */,
 				41D254951E44790000ABA692 /* ContactsList.swift in Sources */,
+				41D255921E44C25F00ABA692 /* SharedInstance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +498,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Credencys.ModelClasses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ModelClasses/Application/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -468,6 +513,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Credencys.ModelClasses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ModelClasses/Application/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

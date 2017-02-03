@@ -22,7 +22,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="148" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fuO-j0-FJr" customClass="MCClientListTable" customModule="ModelClasses" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.64705882349999999" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="clientListCell" rowHeight="148" id="pMb-ak-fiC" customClass="MCClientListCell" customModule="ModelClasses" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="148"/>
@@ -71,6 +71,7 @@
                                                 <constraint firstItem="vMF-I2-Ea7" firstAttribute="trailing" secondItem="ZtH-sC-ux2" secondAttribute="trailing" id="uIf-dI-doU"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.80784313730000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="lblEmail" destination="48T-hp-0dw" id="w9M-f3-1fa"/>
                                             <outlet property="lblFirstName" destination="ZtH-sC-ux2" id="su6-Wv-Mnv"/>

@@ -8,13 +8,15 @@
 
 import UIKit
 import Foundation
+import SwiftyJSON
 @objc protocol WebServiceDelegate{
     
 }
 
 class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     
-    static let sharedInstantAPI = WebService()
+   
+   
     var delegate          :WebServiceDelegate!
     var receivedData = NSMutableData()
     
@@ -109,6 +111,10 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
             let task = session.dataTask(with: urlRequest as URLRequest) { data, response, error in
                 // Get responce
                 var json = [String : AnyObject]()
+                guard (data != nil) || response != nil else{
+                    return successBlock(json as AnyObject,false)
+                }
+
                 do {
                     json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : AnyObject]
                     if let httpResponse = response as? HTTPURLResponse {
@@ -253,33 +259,4 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         return "Boundary-\(NSUUID().uuidString)"
     }
     
-    /*
-    //MARK:- SHOW LOADING HUD
-    func showLoadingHUD(ViewController:UIViewController){
-        if (self.HUD .superview == nil) {
-            ViewController.view .addSubview(self.HUD)
-            self.HUD .show(true)
-        }else{
-            print("HUD is nil")
-        }
-    }
-    
-    //MARK:- SHOW LOADING HUD WITH TEXT
-    func showLoadingHUDWithText(ViewController:UIViewController,text:String){
-        if (self.HUD .superview == nil) {
-            ViewController.view .addSubview(self.HUD)
-            self.HUD.labelText = text
-            self.HUD .show(true)
-        }else{
-            print("HUD is nil")
-        }
-    }
-    
-    //MARK:- HIDE LOADING HUD
-    func hideLoadingHUD(){
-        dispatch_async(dispatch_get_main_queue()) {
-            self.HUD .removeFromSuperview()
-        }
-    }
-  */
 }

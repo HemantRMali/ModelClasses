@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let urlStr = "\(SERVER_DOMAIN_PATH)/v1/security/getToken/31010"
         
-        WebService.sharedInstantAPI.webServiceGetMethod(forWebServiceCall: urlStr, setHTTPMethod: "GET") { (response, isSuccess) in
+        SharedInstance.sharedAPI.webServiceGetMethod(forWebServiceCall: urlStr, setHTTPMethod: "GET") { (response, isSuccess) in
             if isSuccess{
                 print("SUCCESS RESPONSE :",response)
                 let strToken = response.value(forKey: "responseObject") as! String
