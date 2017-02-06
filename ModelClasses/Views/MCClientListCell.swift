@@ -26,6 +26,14 @@ class MCClientListCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    /// This function is use set clientDetails
+    ///
+    /// - Parameters:
+    ///   - strFirstName: First name of client
+    ///   - strLastName: Last name of client
+    ///   - strPartyId: PartyID of client
+    ///   - strEmail: EMail address of client
     open func setClientListDetails(strFirstName: String, strLastName : String, strPartyId : String,strEmail: String){
         lblFirstName.text = "FirstName:\(strFirstName)"
         lblLastName.text  = "LastName:\(strLastName)"

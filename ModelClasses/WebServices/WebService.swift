@@ -21,15 +21,20 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     var receivedData = NSMutableData()
     
     //MARK:- ASYNCHRONOUS_REQUEST
-    func asynchronousRequestCallMethod(qryString: String, forWebServiceCall: String, setHTTPMethod: String, successBlock:@escaping (_ responseData:AnyObject,_ isSuccess:Bool)->Void) {
+    /// This function is use to call Asynchronous Request.
+    ///
+    /// - Parameters:
+    ///   - parameters       : parameters description.
+    ///   - forWebServiceCall: webservice url.
+    ///   - setHTTPMethod    : http method for NSMutableURLRequest.
+    ///   - successBlock     : This block will success or failure response.
+    func asynchronousRequestCallMethod(parameters: NSDictionary, forWebServiceCall: String, setHTTPMethod: String, successBlock:@escaping (_ responseData:AnyObject,_ isSuccess:Bool)->Void) {
 
         
         let url: NSURL = NSURL(string: forWebServiceCall)!
         let request = NSMutableURLRequest(url: url as URL)
-        let params: String = qryString
-        request.httpMethod = "POST"
         request .addValue("bFcwUEJUN0lhekVkREVZTzduVHQ=", forHTTPHeaderField: "Api-Key")
-        request.httpBody = params.data(using: String.Encoding.utf8)
+        request.httpBody = ConvertDictionaryToJsonString(object: parameters)
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             // Get responce
             var json = [String : AnyObject]()
@@ -46,6 +51,14 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     }
     
     //MARK:- WEBSERVICE_CALL_METHOD
+    
+    /// This function is use to call POST method API.
+    ///
+    /// - Parameters:
+    ///   - parameters       : Request parameter dictionary
+    ///   - forWebServiceCall: webservice url.
+    ///   - setHTTPMethod    : http method for NSMutableURLRequest.
+    ///   - successBlock     : This block will success or failure response.
     func webServiceCallMethod(parameters: NSDictionary, forWebServiceCall: String, setHTTPMethod: String,successBlock:@escaping (_ responseData : AnyObject,_ isSuccess : Bool)->Void) {
         
         let session = URLSession(configuration:URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue .main)
@@ -99,6 +112,13 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     }
     
     //MARK:- WEBSERVICE_CALL_METHOD
+    /// This function is use to call GET method API.
+    ///
+    /// - Parameters:
+    ///   - parameters       : Request parameter dictionary
+    ///   - forWebServiceCall: webservice url.
+    ///   - setHTTPMethod    : It should be GET httpMethod
+    ///   - successBlock     : This block will success or failure response.
     func webServiceGetMethod(forWebServiceCall: String, setHTTPMethod: String,successBlock:@escaping (_ responseData : AnyObject,_ isSuccess : Bool)->Void) {
         
         let session = URLSession(configuration:URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue .main)
@@ -148,6 +168,13 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
             task.resume()
     }
     
+    
+    /// This is seperate function for createRequest.
+    ///
+    /// - Parameters:
+    ///   - parameter: Request Parameters.
+    ///   - strURL: API url.
+    /// - Returns: This will returns NSURLRequest with all required parameter set.
     func createRequest (parameter: NSDictionary,strURL:NSString) -> NSURLRequest {
         
         let TOKEN : String! = USER_DEFAULTS.value(forKey: "Token") as! String!
@@ -166,6 +193,11 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         return request
     }
     
+    
+    /// This function is use to convert dictionary to JSONString.
+    ///
+    /// - Parameter object: Disctionary.
+    /// - Returns: JSONString.
     func ConvertDictionaryToJsonString(object : NSDictionary) -> Data {
         var jsonData : Data = Data()
         do {
@@ -184,6 +216,17 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         return jsonData
     }
     //MARK:- UPLOAD_IMAGE_WEBSERVICE_CALL_METHOD
+    
+    
+    /// This function is use to upload image on server.
+    ///
+    /// - Parameters:
+    ///   - parameters: Request parameters.
+    ///   - arrImg: Collection of images in array.
+    ///   - arrImgKey: Collection of keys for images.
+    ///   - forWebServiceCall: webservice url.
+    ///   - setHTTPMethod    : It should be GET httpMethod
+    ///   - successBlock     : This block will success or failure response.
     func UploadImagesWebServiceCallMethod(parameters: NSDictionary, UIImage arrImg: NSArray, withImageControl arrImgKey: NSArray, forWebServiceCall: String, setHTTPMethod: String,successBlock:@escaping (_ responseData:AnyObject,_ isSuccess:Bool)->Void) {
         
         //let session = NSURLSession.sharedSession()
@@ -217,6 +260,15 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         task.resume()
     }
    
+    
+    /// This function is use to create httpBody for NSMutableURLRequest.
+    ///
+    /// - Parameters:
+    ///   - parameters: Request parameters.
+    ///   - boundary: NSUUID().uuidString
+    ///   - filePathKey:  Collection of keys for images.
+    ///   - arrImage: Collection of images in array.
+    /// - Returns: NSData.
     func createBodyWithParametersForImages(parameters: NSDictionary?,boundary: String, filePathKey : NSArray, arrImage: NSArray) -> NSData {
         let body = NSMutableData()
         
@@ -255,6 +307,10 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         return body
     }
     
+    
+    /// This function is use to generateBoundaryString.
+    ///
+    /// - Returns: generated BoundaryString as string.
     func generateBoundaryString() -> String {
         return "Boundary-\(NSUUID().uuidString)"
     }

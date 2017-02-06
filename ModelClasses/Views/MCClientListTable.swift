@@ -15,7 +15,7 @@ class MCClientListTable: UITableView {
         reloadData()
         }
     }
-    // Progamaticaly : this initiazer will be call
+    //Progamaticaly : this initiazer will be call
     override init(frame: CGRect, style: UITableViewStyle){
         super.init(frame:frame, style:style)
     }
