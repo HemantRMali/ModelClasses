@@ -34,7 +34,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         let url: NSURL = NSURL(string: forWebServiceCall)!
         let request = NSMutableURLRequest(url: url as URL)
         request .addValue("bFcwUEJUN0lhekVkREVZTzduVHQ=", forHTTPHeaderField: "Api-Key")
-        request.httpBody = ConvertDictionaryToJsonString(object: parameters)
+        request.httpBody = ConvertDictionaryToData(object: parameters)
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             // Get responce
             var json = [String : AnyObject]()
@@ -188,7 +188,14 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
             request.setValue("27808",forHTTPHeaderField: "buId")
             request.setValue(MAC_UUID,forHTTPHeaderField: "macId")
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpBody = ConvertDictionaryToJsonString(object: parameter)
+            
+            var dataRequest = Data()
+            do {
+            dataRequest = try JSON(parameter).rawData(options: JSONSerialization.WritingOptions.prettyPrinted)
+            }catch let error as NSError {
+                print(error)
+            }
+            request.httpBody = dataRequest // OtherOption ->  ConvertDictionaryToData(object: parameter)
         }
         return request
     }
@@ -197,8 +204,8 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     /// This function is use to convert dictionary to JSONString.
     ///
     /// - Parameter object: Disctionary.
-    /// - Returns: JSONString.
-    func ConvertDictionaryToJsonString(object : NSDictionary) -> Data {
+    /// - Returns: Data.
+    func ConvertDictionaryToData(object : NSDictionary) -> Data {
         var jsonData : Data = Data()
         do {
             jsonData = try JSONSerialization.data(withJSONObject: object, options: .prettyPrinted)
@@ -213,6 +220,9 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         } catch let error as NSError {
             print(error)
         }
+        /*let theJSONText = NSString(data: jsonData,
+                                   encoding: String.Encoding.ascii.rawValue)
+        print("JSON string = \(theJSONText!)")*/
         return jsonData
     }
     //MARK:- UPLOAD_IMAGE_WEBSERVICE_CALL_METHOD
