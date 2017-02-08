@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
             }else {
-                print("Error:",response)
+                print("Token Error:",response)
             }
         }
     }

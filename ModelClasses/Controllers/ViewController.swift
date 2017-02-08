@@ -29,8 +29,8 @@ class ViewController: UIViewController {
     func callWebserviceTOGetClientList(){
         if isInternetAvailable {
             var discParameters = Dictionary<String, Any>()
-            var arrEntityDataList  = Array<Any>()
-            var arrRequestDataList = Array<Any>()
+            let arrEntityDataList = NSMutableArray()
+            let arrRequestDataList = NSMutableArray()
             
             var discRequestDataList = Dictionary<String, Any>()
             discParameters.updateValue("1436743", forKey: "partyId") //Dics
@@ -42,11 +42,11 @@ class ViewController: UIViewController {
             
             discEntityDataList .updateValue(arrRequestDataList, forKey: "requestDataList")
             
-            arrEntityDataList .append(discEntityDataList)
+            arrEntityDataList .add(discEntityDataList)
             discRequestDataList.updateValue("14004", forKey: "contactTypeId")
             discRequestDataList.updateValue("602004,602003,602007,602011,602009,602012,602008,602001,602010,602006,602002", forKey: "stageId")
             
-            arrRequestDataList .append(discRequestDataList)
+            arrRequestDataList .add(discRequestDataList)
             discParameters .updateValue(arrEntityDataList, forKey: "entityDataList")
             let urlStr = "\(SERVER_DOMAIN_PATH)/v6/BulkDataSync"
             
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
                         var arrEntityDataList = Array<Any>()
                         arrEntityDataList =  discResponseObject["entityDataList"] as!
                         Array
-                        let tempDic = arrEntityDataList[0] as! Dictionary<String, Any>//arrEntityDataList.object(at: 0) as! Dictionary<String, Any>
+                        let tempDic = arrEntityDataList[0] as! Dictionary<String, Any>
                         let responseDataDic = tempDic["responseData"] as! Dictionary<String, Any>
                         var discResponseData = Dictionary<String, Any>()
                         discResponseData = responseDataDic["responseObject"] as! Dictionary<String, Any>
@@ -82,6 +82,8 @@ class ViewController: UIViewController {
                     }
                     
                 }else {
+                    self.hideHud()
+                    self.showAlert(title: APP_NAME, message: "Oops!!!, Someting went wrong.")
                     print("Error")
                 }
             }
