@@ -14,6 +14,7 @@
 		4109ABFD1E40A5E30018BDB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4109ABFB1E40A5E30018BDB7 /* Main.storyboard */; };
 		4109ABFF1E40A60D0018BDB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4109ABFE1E40A60D0018BDB7 /* ViewController.swift */; };
 		41947F791E41D402005C2BF9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F781E41D402005C2BF9 /* WebService.swift */; };
+		41C6084F1E4B039C00A4A6F6 /* Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6084E1E4B039C00A4A6F6 /* Extenstions.swift */; };
 		41D254871E4457FF00ABA692 /* MCClientListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254861E4457FF00ABA692 /* MCClientListCell.swift */; };
 		41D2548B1E4462E900ABA692 /* MCClientListTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2548A1E4462E900ABA692 /* MCClientListTable.swift */; };
 		41D254951E44790000ABA692 /* ContactsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2548E1E44790000ABA692 /* ContactsList.swift */; };
@@ -27,8 +28,6 @@
 		41D255881E44C1E600ABA692 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 41D255841E44C1E600ABA692 /* LICENSE */; };
 		41D255891E44C1E600ABA692 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D255861E44C1E600ABA692 /* MBProgressHUD.m */; };
 		41D2558A1E44C1E600ABA692 /* README.mdown in Sources */ = {isa = PBXBuildFile; fileRef = 41D255871E44C1E600ABA692 /* README.mdown */; };
-		41D2558E1E44C21900ABA692 /* MutableDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2558C1E44C21900ABA692 /* MutableDataExtension.swift */; };
-		41D2558F1E44C21900ABA692 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2558D1E44C21900ABA692 /* StringExtension.swift */; };
 		41D255921E44C25F00ABA692 /* SharedInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D255911E44C25F00ABA692 /* SharedInstance.swift */; };
 		41FA03861E4339C000857A08 /* client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA03851E4339C000857A08 /* client.swift */; };
 		41FA03881E43497900857A08 /* responseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FA03871E43497900857A08 /* responseObject.swift */; };
@@ -45,6 +44,7 @@
 		4109ABFB1E40A5E30018BDB7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4109ABFE1E40A60D0018BDB7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		41947F781E41D402005C2BF9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		41C6084E1E4B039C00A4A6F6 /* Extenstions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extenstions.swift; sourceTree = "<group>"; };
 		41D254861E4457FF00ABA692 /* MCClientListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCClientListCell.swift; sourceTree = "<group>"; };
 		41D2548A1E4462E900ABA692 /* MCClientListTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCClientListTable.swift; sourceTree = "<group>"; };
 		41D2548E1E44790000ABA692 /* ContactsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsList.swift; sourceTree = "<group>"; };
@@ -60,8 +60,6 @@
 		41D255851E44C1E600ABA692 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		41D255861E44C1E600ABA692 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		41D255871E44C1E600ABA692 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
-		41D2558C1E44C21900ABA692 /* MutableDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableDataExtension.swift; sourceTree = "<group>"; };
-		41D2558D1E44C21900ABA692 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		41D255911E44C25F00ABA692 /* SharedInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedInstance.swift; sourceTree = "<group>"; };
 		41FA03851E4339C000857A08 /* client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = client.swift; sourceTree = "<group>"; };
 		41FA03871E43497900857A08 /* responseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = responseObject.swift; sourceTree = "<group>"; };
@@ -215,8 +213,7 @@
 		41D2558B1E44C21900ABA692 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				41D2558C1E44C21900ABA692 /* MutableDataExtension.swift */,
-				41D2558D1E44C21900ABA692 /* StringExtension.swift */,
+				41C6084E1E4B039C00A4A6F6 /* Extenstions.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -377,7 +374,6 @@
 				41D254981E44790000ABA692 /* EntityDataList.swift in Sources */,
 				41D255891E44C1E600ABA692 /* MBProgressHUD.m in Sources */,
 				41D255811E44C1B300ABA692 /* Constant.swift in Sources */,
-				41D2558F1E44C21900ABA692 /* StringExtension.swift in Sources */,
 				41D2558A1E44C1E600ABA692 /* README.mdown in Sources */,
 				41D2549A1E44790000ABA692 /* ResponseData.swift in Sources */,
 				41D254991E44790000ABA692 /* NomineeList.swift in Sources */,
@@ -387,8 +383,8 @@
 				41D254971E44790000ABA692 /* DocumentList.swift in Sources */,
 				41D254871E4457FF00ABA692 /* MCClientListCell.swift in Sources */,
 				41947F791E41D402005C2BF9 /* WebService.swift in Sources */,
+				41C6084F1E4B039C00A4A6F6 /* Extenstions.swift in Sources */,
 				41D254961E44790000ABA692 /* ContactSummaryList.swift in Sources */,
-				41D2558E1E44C21900ABA692 /* MutableDataExtension.swift in Sources */,
 				41D254951E44790000ABA692 /* ContactsList.swift in Sources */,
 				41D255921E44C25F00ABA692 /* SharedInstance.swift in Sources */,
 			);
