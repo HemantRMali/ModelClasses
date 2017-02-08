@@ -9,20 +9,20 @@
 import UIKit
 import SwiftyJSON
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var tblClientList: MCClientListTable!
     
     var clients : [client] = []
     var jsonResponseClientList : JSON? = nil
     
     override func viewDidLoad() {
-    
+        
         super.viewDidLoad()
         callWebserviceTOGetClientList()
     }
     
     @IBAction func actionReload(_ sender: UIButton) {
-    
+        
         self.clients = []
         callWebserviceTOGetClientList()
     }
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
             discRequestDataList.updateValue("14004", forKey: "contactTypeId")
             discRequestDataList.updateValue("602004,602003,602007,602011,602009,602012,602008,602001,602010,602006,602002", forKey: "stageId")
             
-            arrRequestDataList .add(discRequestDataList)
+            arrRequestDataList.add(discRequestDataList)
             discParameters .updateValue(arrEntityDataList, forKey: "entityDataList")
             let urlStr = "\(SERVER_DOMAIN_PATH)/v6/BulkDataSync"
             
@@ -97,6 +97,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
 

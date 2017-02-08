@@ -9,7 +9,7 @@
 import UIKit
 
 class MCClientListCell: UITableViewCell {
-
+    
     @IBOutlet var lblFirstName : UILabel!
     @IBOutlet var lblLastName  : UILabel!
     @IBOutlet var lblPartyId   : UILabel!
@@ -19,10 +19,10 @@ class MCClientListCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
