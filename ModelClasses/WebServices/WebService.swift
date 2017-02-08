@@ -15,8 +15,8 @@ import SwiftyJSON
 
 class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     
-   
-   
+    
+    
     var delegate          :WebServiceDelegate!
     var receivedData = NSMutableData()
     
@@ -29,7 +29,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     ///   - setHTTPMethod    : http method for NSMutableURLRequest.
     ///   - successBlock     : This block will success or failure response.
     func asynchronousRequestCallMethod(parameters: Dictionary<String, Any>, forWebServiceCall: String, setHTTPMethod: String, successBlock:@escaping (_ responseData:AnyObject,_ isSuccess:Bool)->Void) {
-
+        
         
         let url: NSURL = NSURL(string: forWebServiceCall)!
         let request = NSMutableURLRequest(url: url as URL)
@@ -65,7 +65,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         let urlRequest = createRequest(parameter: parameters, strURL: forWebServiceCall as NSString)
         
         if (try? JSONSerialization.data(withJSONObject: parameters, options: [])) != nil {
-        
+            
             //1) Custom delegate
             //2) system provided delegate
             let task = session.dataTask(with: urlRequest as URLRequest) { data, response, error in
@@ -108,7 +108,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
             }
             task.resume()
         }
-  
+        
     }
     
     //MARK:- WEBSERVICE_CALL_METHOD
@@ -126,46 +126,46 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         let url = URL(string: forWebServiceCall)
         let urlRequest = URLRequest(url: url!)
         
-          //1) Custom delegate
-          //2) system provided delegate
-            let task = session.dataTask(with: urlRequest as URLRequest) { data, response, error in
-                // Get responce
-                var json = [String : AnyObject]()
-                guard (data != nil) || response != nil else{
-                    return successBlock(json as AnyObject,false)
-                }
-
-                do {
-                    json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : AnyObject]
-                    if let httpResponse = response as? HTTPURLResponse {
-                        print("Status code: (\(httpResponse.statusCode))")
-                        
-                        if httpResponse.statusCode == NSURLErrorTimedOut{
-                            print("request time out")
-                        }else{
-                            successBlock(json as AnyObject, true)
-                        }
-                        // do stuff.
-                    }
-                    
-                } catch {
-                    successBlock(json as AnyObject,false)
-                    print(error)
-                    
-                    if let httpResponse = response as? HTTPURLResponse {
-                        print("Status code: (\(httpResponse.statusCode))")
-                        
-                        if httpResponse.statusCode == NSURLErrorTimedOut{
-                            print("request time out")
-                        }else{
-                            successBlock(json as AnyObject, true)
-                        }
-                        // do stuff.
-                    }
-                    print("error : catch block execute")
-                }
+        //1) Custom delegate
+        //2) system provided delegate
+        let task = session.dataTask(with: urlRequest as URLRequest) { data, response, error in
+            // Get responce
+            var json = [String : AnyObject]()
+            guard (data != nil) || response != nil else{
+                return successBlock(json as AnyObject,false)
             }
-            task.resume()
+            
+            do {
+                json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String : AnyObject]
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("Status code: (\(httpResponse.statusCode))")
+                    
+                    if httpResponse.statusCode == NSURLErrorTimedOut{
+                        print("request time out")
+                    }else{
+                        successBlock(json as AnyObject, true)
+                    }
+                    // do stuff.
+                }
+                
+            } catch {
+                successBlock(json as AnyObject,false)
+                print(error)
+                
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("Status code: (\(httpResponse.statusCode))")
+                    
+                    if httpResponse.statusCode == NSURLErrorTimedOut{
+                        print("request time out")
+                    }else{
+                        successBlock(json as AnyObject, true)
+                    }
+                    // do stuff.
+                }
+                print("error : catch block execute")
+            }
+        }
+        task.resume()
     }
     
     
@@ -191,7 +191,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
             
             var dataRequest = Data()
             do {
-            dataRequest = try JSON(parameter).rawData(options: JSONSerialization.WritingOptions.prettyPrinted)
+                dataRequest = try JSON(parameter).rawData(options: JSONSerialization.WritingOptions.prettyPrinted)
             }catch let error as NSError {
                 print(error)
             }
@@ -221,8 +221,8 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
             print(error)
         }
         /*let theJSONText = NSString(data: jsonData,
-                                   encoding: String.Encoding.ascii.rawValue)
-        print("JSON string = \(theJSONText!)")*/
+         encoding: String.Encoding.ascii.rawValue)
+         print("JSON string = \(theJSONText!)")*/
         return jsonData
     }
     //MARK:- UPLOAD_IMAGE_WEBSERVICE_CALL_METHOD
@@ -257,7 +257,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         urlRequest .setValue(postLength, forHTTPHeaderField: "Content-Length")
         let task = session.dataTask(with: urlRequest as URLRequest) { data, response, error in
             // Get responce
-             var json = [String : AnyObject]()
+            var json = [String : AnyObject]()
             do {
                 json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String : AnyObject]
                 successBlock(json as AnyObject, true)
@@ -269,7 +269,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
         }
         task.resume()
     }
-   
+    
     
     /// This function is use to create httpBody for NSMutableURLRequest.
     ///
@@ -294,24 +294,24 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
             if arrImage.count > 0 && filePathKey.count == arrImage.count {
                 
                 for i in 0 ..< arrImage.count{
-                   
+                    
                     var data = Data()
                     
                     let filename = "image\(i).jpg"
                     if arrImage[i] as? UIImage == UIImage(named:"reg_profile"){
                         print("No profile pic selected")
                     }else{
-                         data = UIImageJPEGRepresentation(arrImage[i] as! UIImage,1)!;
+                        data = UIImageJPEGRepresentation(arrImage[i] as! UIImage,1)!;
                     }
                     
-                        let mimetype = "png"
-                        body.appendString(string: "--\(boundary)\r\n")
-                        body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey[i])\"; filename=\"\(filename)\"\r\n")
-                        body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
-                        body.append(data)
-                        body.appendString(string: "\r\n")
-                    }
+                    let mimetype = "png"
+                    body.appendString(string: "--\(boundary)\r\n")
+                    body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey[i])\"; filename=\"\(filename)\"\r\n")
+                    body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+                    body.append(data)
+                    body.appendString(string: "\r\n")
                 }
+            }
         }
         body.appendString(string: "--\(boundary)--\r\n")
         return body

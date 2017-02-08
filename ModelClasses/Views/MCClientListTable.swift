@@ -9,11 +9,11 @@
 import UIKit
 
 class MCClientListTable: UITableView {
-
+    
     var dataSourceArray = [client]() {
         didSet{
-        reloadData()
-        self.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            reloadData()
+            self.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
     }
     //Progamaticaly : this initiazer will be call
