@@ -30,8 +30,6 @@ class client{
     }
 }
 
-
-
 class clientDocumentList{
 
     var firstName           : String = ""

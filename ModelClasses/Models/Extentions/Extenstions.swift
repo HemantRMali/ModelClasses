@@ -11,15 +11,20 @@ import Foundation
 
 //MARK:- NSMutableData EXTENSTION
 extension NSMutableData {
+    
+    
+    /// This function is use to append string to NSMutableData
+    ///
+    /// - Parameter string: The string to be added to the `NSMutableData`.
     func appendString(string: String) {
         let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
         append(data!)
     }
 }
 
+//MARK:- String EXTENSTION
 extension String {
     
-    //MARK:- STRING EXTENSTION
     func isEmptyString() -> Bool {
         
         if self.trimmingCharacters(in: CharacterSet.whitespaces).characters.count == 0{
@@ -30,8 +35,10 @@ extension String {
 }
 
 
+//MARK:- UIViewController EXTENSTION
 extension UIViewController {
     
+    //MARK:-  Common alert method
     func showAlert(title: String?, message: String?, buttonTitle: String = "OK") {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: { action in
@@ -40,6 +47,7 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    //MARK:-  Common internet alert
     func showInternetAlert(){
         
         let alertController = UIAlertController(title: "App Name", message: "There is no internet connection.", preferredStyle: .alert)
@@ -52,7 +60,7 @@ extension UIViewController {
     }
     
     
-    // MARK:-  HUD Custom Method
+    //MARK:-  HUD Custom Method
     func showHud()  {
         DispatchQueue.main.async(execute: {() -> Void in
             SharedInstance.HUD  = MBProgressHUD.showAdded(to: self.view, animated: true)

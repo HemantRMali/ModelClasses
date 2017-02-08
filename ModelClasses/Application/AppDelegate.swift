@@ -84,6 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK:- UpdateTokenConstanly
     func UpdateTokenConstanly() {
         let delayTime: DispatchTime = DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        print("DelayTime:",delayTime)
         DispatchQueue.main.asyncAfter(deadline: delayTime, execute: {
             if isInternetAvailable{
                 self.UpdateToken()
