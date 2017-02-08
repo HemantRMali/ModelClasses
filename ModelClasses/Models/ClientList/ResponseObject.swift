@@ -19,25 +19,25 @@ class ResponseObject : NSObject, NSCoding{
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
-	init(fromDictionary dictionary: NSDictionary){
+	init(fromDictionary dictionary: Dictionary<String, Any>){
 		contactSummaryList = [ContactSummaryList]()
-		if let contactSummaryListArray = dictionary["contactSummaryList"] as? [NSDictionary]{
-			for dic in contactSummaryListArray{
-				let value = ContactSummaryList(fromDictionary: dic)
+		if let contactSummaryListArray = dictionary["contactSummaryList"]{
+			for dic in contactSummaryListArray as! Array<Any>{
+				let value = ContactSummaryList(fromDictionary: dic as! Dictionary<String, Any>)
 				contactSummaryList.append(value)
 			}
 		}
 		contactsList = [ContactsList]()
-		if let contactsListArray = dictionary["contactsList"] as? [NSDictionary]{
-			for dic in contactsListArray{
-				let value = ContactsList(fromDictionary: dic)
+		if let contactsListArray = dictionary["contactsList"]{
+			for dic in contactsListArray as! Array<Dictionary<String, Any>>{
+				let value = ContactsList(fromDictionary: dic )
 				contactsList.append(value)
 			}
 		}
 		entityDataList = [EntityDataList]()
-		if let entityDataListArray = dictionary["entityDataList"] as? [NSDictionary]{
-			for dic in entityDataListArray{
-				let value = EntityDataList(fromDictionary: dic)
+		if let entityDataListArray = dictionary["entityDataList"]{
+			for dic in entityDataListArray as! Array<Dictionary<String,Any>>{
+				let value = EntityDataList(fromDictionary: dic )
 				entityDataList.append(value)
 			}
 		}
@@ -45,27 +45,27 @@ class ResponseObject : NSObject, NSCoding{
 	}
 
 	/**
-	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
+	 * Returns all the available property values in the form of Dictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	func toDictionary() -> NSDictionary
+	func toDictionary() -> Dictionary<String, Any>
 	{
-		var dictionary = NSMutableDictionary()
+		var dictionary = Dictionary<String, Any>()
 		if contactSummaryList != nil{
-			var dictionaryElements = [NSDictionary]()
+			var dictionaryElements = [Dictionary<String, Any>]()
 			for contactSummaryListElement in contactSummaryList {
 				dictionaryElements.append(contactSummaryListElement.toDictionary())
 			}
 			dictionary["contactSummaryList"] = dictionaryElements
 		}
 		if contactsList != nil{
-			var dictionaryElements = [NSDictionary]()
+			var dictionaryElements = [Dictionary<String, Any>]()
 			for contactsListElement in contactsList {
 				dictionaryElements.append(contactsListElement.toDictionary())
 			}
 			dictionary["contactsList"] = dictionaryElements
 		}
 		if entityDataList != nil{
-			var dictionaryElements = [NSDictionary]()
+			var dictionaryElements = [Dictionary<String, Any>]()
 			for entityDataListElement in entityDataList {
 				dictionaryElements.append(entityDataListElement.toDictionary())
 			}

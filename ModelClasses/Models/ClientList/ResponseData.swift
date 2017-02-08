@@ -19,21 +19,21 @@ class ResponseData : NSObject, NSCoding{
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
-	init(fromDictionary dictionary: NSDictionary){
-		reasonCode = dictionary["reasonCode"] as? AnyObject
-		responseListObject = dictionary["responseListObject"] as? AnyObject
-		if let responseObjectData = dictionary["responseObject"] as? NSDictionary{
-			responseObject = ResponseObject(fromDictionary: responseObjectData)
+	init(fromDictionary dictionary: Dictionary<String, Any>){
+		reasonCode = dictionary["reasonCode"] as AnyObject!
+		responseListObject = dictionary["responseListObject"] as AnyObject!
+        if let responseObjectData = dictionary["responseObject"]{
+			responseObject = ResponseObject(fromDictionary: responseObjectData as! Dictionary<String, Any>)
 		}
 		status = dictionary["status"] as? String
 	}
 
 	/**
-	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
+	 * Returns all the available property values in the form of Dictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	func toDictionary() -> NSDictionary
+	func toDictionary() -> Dictionary<String, Any>
 	{
-		var dictionary = NSMutableDictionary()
+		var dictionary = Dictionary<String, Any>()
 		if reasonCode != nil{
 			dictionary["reasonCode"] = reasonCode
 		}

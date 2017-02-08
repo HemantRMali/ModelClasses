@@ -28,7 +28,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     ///   - forWebServiceCall: webservice url.
     ///   - setHTTPMethod    : http method for NSMutableURLRequest.
     ///   - successBlock     : This block will success or failure response.
-    func asynchronousRequestCallMethod(parameters: NSDictionary, forWebServiceCall: String, setHTTPMethod: String, successBlock:@escaping (_ responseData:AnyObject,_ isSuccess:Bool)->Void) {
+    func asynchronousRequestCallMethod(parameters: Dictionary<String, Any>, forWebServiceCall: String, setHTTPMethod: String, successBlock:@escaping (_ responseData:AnyObject,_ isSuccess:Bool)->Void) {
 
         
         let url: NSURL = NSURL(string: forWebServiceCall)!
@@ -59,7 +59,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     ///   - forWebServiceCall: webservice url.
     ///   - setHTTPMethod    : http method for NSMutableURLRequest.
     ///   - successBlock     : This block will success or failure response.
-    func webServiceCallMethod(parameters: NSDictionary, forWebServiceCall: String, setHTTPMethod: String,successBlock:@escaping (_ responseData : AnyObject,_ isSuccess : Bool)->Void) {
+    func webServiceCallMethod(parameters: Dictionary<String, Any>, forWebServiceCall: String, setHTTPMethod: String,successBlock:@escaping (_ responseData : AnyObject,_ isSuccess : Bool)->Void) {
         
         let session = URLSession(configuration:URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue .main)
         let urlRequest = createRequest(parameter: parameters, strURL: forWebServiceCall as NSString)
@@ -175,7 +175,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     ///   - parameter: Request Parameters.
     ///   - strURL: API url.
     /// - Returns: This will returns NSURLRequest with all required parameter set.
-    func createRequest (parameter: NSDictionary,strURL:NSString) -> NSURLRequest {
+    func createRequest (parameter: Dictionary<String, Any>,strURL:NSString) -> NSURLRequest {
         
         let TOKEN : String! = USER_DEFAULTS.value(forKey: "Token") as! String!
         var request = NSMutableURLRequest()
@@ -205,7 +205,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     ///
     /// - Parameter object: Disctionary.
     /// - Returns: Data.
-    func ConvertDictionaryToData(object : NSDictionary) -> Data {
+    func ConvertDictionaryToData(object : Dictionary<String, Any>) -> Data {
         var jsonData : Data = Data()
         do {
             jsonData = try JSONSerialization.data(withJSONObject: object, options: .prettyPrinted)
@@ -237,7 +237,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     ///   - forWebServiceCall: webservice url.
     ///   - setHTTPMethod    : It should be GET httpMethod
     ///   - successBlock     : This block will success or failure response.
-    func UploadImagesWebServiceCallMethod(parameters: NSDictionary, UIImage arrImg: NSArray, withImageControl arrImgKey: NSArray, forWebServiceCall: String, setHTTPMethod: String,successBlock:@escaping (_ responseData:AnyObject,_ isSuccess:Bool)->Void) {
+    func UploadImagesWebServiceCallMethod(parameters: Dictionary<String, Any>, UIImage arrImg: Array<Any>, withImageControl arrImgKey: Array<Any>, forWebServiceCall: String, setHTTPMethod: String,successBlock:@escaping (_ responseData:AnyObject,_ isSuccess:Bool)->Void) {
         
         //let session = NSURLSession.sharedSession()
         let session = URLSession(configuration:URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue .current)
@@ -279,7 +279,7 @@ class WebService: NSObject,URLSessionDelegate,URLSessionDataDelegate {
     ///   - filePathKey:  Collection of keys for images.
     ///   - arrImage: Collection of images in array.
     /// - Returns: NSData.
-    func createBodyWithParametersForImages(parameters: NSDictionary?,boundary: String, filePathKey : NSArray, arrImage: NSArray) -> NSData {
+    func createBodyWithParametersForImages(parameters: Dictionary<String, Any>?,boundary: String, filePathKey : Array<Any>, arrImage: Array<Any>) -> NSData {
         let body = NSMutableData()
         
         if parameters != nil {

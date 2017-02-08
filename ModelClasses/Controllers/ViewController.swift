@@ -16,29 +16,38 @@ class ViewController: UIViewController {
     var jsonResponseClientList : JSON? = nil
     
     override func viewDidLoad() {
-    super.viewDidLoad()
-
+    
+        super.viewDidLoad()
+        callWebserviceTOGetClientList()
+    }
+    
+    @IBAction func actionReload(_ sender: UIButton) {
+    
+        self.clients = []
+        callWebserviceTOGetClientList()
+    }
+    func callWebserviceTOGetClientList(){
         if isInternetAvailable {
-            let discParameters = NSMutableDictionary()
-            let arrEntityDataList = NSMutableArray()
-            let arrRequestDataList = NSMutableArray()
+            var discParameters = Dictionary<String, Any>()
+            var arrEntityDataList  = Array<Any>()
+            var arrRequestDataList = Array<Any>()
             
-            let discRequestDataList = NSMutableDictionary()
-            discParameters .setValue("1436743", forKey: "partyId")
+            var discRequestDataList = Dictionary<String, Any>()
+            discParameters.updateValue("1436743", forKey: "partyId") //Dics
             
-            let discEntityDataList = NSMutableDictionary()
-            discEntityDataList .setValue("clientListForRM", forKey: "entityName")
-            discEntityDataList .setValue("1", forKey: "pageNo")
-            discEntityDataList .setValue("100", forKey: "pageSize")
+            var discEntityDataList = Dictionary<String, Any>()
+            discEntityDataList .updateValue("clientListForRM", forKey: "entityName")
+            discEntityDataList .updateValue("1", forKey: "pageNo")
+            discEntityDataList .updateValue("100", forKey: "pageSize")
             
-            discEntityDataList .setObject(arrRequestDataList, forKey: "requestDataList" as NSCopying)
+            discEntityDataList .updateValue(arrRequestDataList, forKey: "requestDataList")
             
-            arrEntityDataList .add(discEntityDataList)
-            discRequestDataList.setValue("14004", forKey: "contactTypeId")
-            discRequestDataList.setValue("602004,602003,602007,602011,602009,602012,602008,602001,602010,602006,602002", forKey: "stageId")
+            arrEntityDataList .append(discEntityDataList)
+            discRequestDataList.updateValue("14004", forKey: "contactTypeId")
+            discRequestDataList.updateValue("602004,602003,602007,602011,602009,602012,602008,602001,602010,602006,602002", forKey: "stageId")
             
-            arrRequestDataList .add(discRequestDataList)
-            discParameters .setObject(arrEntityDataList, forKey: "entityDataList" as NSCopying)
+            arrRequestDataList .append(discRequestDataList)
+            discParameters .updateValue(arrEntityDataList, forKey: "entityDataList")
             let urlStr = "\(SERVER_DOMAIN_PATH)/v6/BulkDataSync"
             
             showHud()
@@ -46,20 +55,19 @@ class ViewController: UIViewController {
                 if isSuccess {
                     self.hideHud()
                     if responseData.value(forKey: "status") as! String == "success"{
-                        var discResponseObject = NSDictionary()
-                        discResponseObject = (responseData.value(forKey: "responseObject")! as AnyObject) as! NSDictionary
+                        var discResponseObject = Dictionary<String, Any>()
+                        discResponseObject = (responseData.value(forKey: "responseObject")! as AnyObject) as! Dictionary
                         
-                        var arrEntityDataList = NSArray()
-                        arrEntityDataList = discResponseObject.value(forKey: "entityDataList") as! NSArray
+                        var arrEntityDataList = Array<Any>()
+                        arrEntityDataList =  discResponseObject["entityDataList"] as!
+                        Array
+                        let tempDic = arrEntityDataList[0] as! Dictionary<String, Any>//arrEntityDataList.object(at: 0) as! Dictionary<String, Any>
+                        let responseDataDic = tempDic["responseData"] as! Dictionary<String, Any>
+                        var discResponseData = Dictionary<String, Any>()
+                        discResponseData = responseDataDic["responseObject"] as! Dictionary<String, Any>
                         
-                        let tempDic = arrEntityDataList.object(at: 0) as! NSDictionary
-                        let responseDataDic = tempDic.object(forKey: "responseData") as! NSDictionary
-                        
-                        var discResponseData = NSDictionary()
-                        discResponseData = responseDataDic.value(forKey: "responseObject") as! NSDictionary
-                        
-                        var arrTmp = NSArray()
-                        arrTmp = discResponseData.value(forKey: "contactsList") as! NSArray
+                        var arrTmp = Array<Any>()
+                        arrTmp = discResponseData["contactsList"] as! Array
                         
                         self.jsonResponseClientList = JSON(arrTmp)
                         for i in 0..<self.jsonResponseClientList!.count{
@@ -77,9 +85,9 @@ class ViewController: UIViewController {
                     print("Error")
                 }
             }
-        
+            
         }else{
-        showInternetAlert()
+            showInternetAlert()
         }
     }
     

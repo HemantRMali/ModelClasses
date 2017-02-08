@@ -18,18 +18,18 @@ class ContactSummaryList : NSObject, NSCoding{
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
-	init(fromDictionary dictionary: NSDictionary){
+	init(fromDictionary dictionary: Dictionary<String, Any>){
 		key = dictionary["key"] as? String
 		seqNo = dictionary["seqNo"] as? Int
 		value = dictionary["value"] as? String
 	}
 
 	/**
-	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
+	 * Returns all the available property values in the form of Dictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	func toDictionary() -> NSDictionary
+	func toDictionary() -> Dictionary<String, Any>
 	{
-		var dictionary = NSMutableDictionary()
+		var dictionary = Dictionary<String, Any>()
 		if key != nil{
 			dictionary["key"] = key
 		}

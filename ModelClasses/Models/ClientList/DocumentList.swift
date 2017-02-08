@@ -19,7 +19,7 @@ class DocumentList : NSObject, NSCoding{
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
-	init(fromDictionary dictionary: NSDictionary){
+	init(fromDictionary dictionary: Dictionary<String, Any>){
 		documentName = dictionary["documentName"] as? String
 		documentStatus = dictionary["documentStatus"] as? String
 		fileName = dictionary["fileName"] as? String
@@ -27,11 +27,11 @@ class DocumentList : NSObject, NSCoding{
 	}
 
 	/**
-	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
+	 * Returns all the available property values in the form of Dictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	func toDictionary() -> NSDictionary
+	func toDictionary() -> Dictionary<String, Any>
 	{
-		var dictionary = NSMutableDictionary()
+		var dictionary = Dictionary<String, Any>()
 		if documentName != nil{
 			dictionary["documentName"] = documentName
 		}

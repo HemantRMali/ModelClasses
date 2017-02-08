@@ -20,22 +20,22 @@ class EntityDataList : NSObject, NSCoding{
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
-	init(fromDictionary dictionary: NSDictionary){
+	init(fromDictionary dictionary: Dictionary<String, Any>){
 		entityName = dictionary["entityName"] as? String
 		lastSyncDateTime = dictionary["lastSyncDateTime"] as? String
 		pageNo = dictionary["pageNo"] as? Int
 		pageSize = dictionary["pageSize"] as? Int
-		if let responseDataData = dictionary["responseData"] as? NSDictionary{
-			responseData = ResponseData(fromDictionary: responseDataData)
+		if let responseDataData = dictionary["responseData"]{
+			responseData = ResponseData(fromDictionary: responseDataData as! Dictionary<String, Any>)
 		}
 	}
 
 	/**
-	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
+	 * Returns all the available property values in the form of Dictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	func toDictionary() -> NSDictionary
+	func toDictionary() -> Dictionary<String, Any>
 	{
-		var dictionary = NSMutableDictionary()
+		var dictionary = Dictionary<String, Any>()
 		if entityName != nil{
 			dictionary["entityName"] = entityName
 		}
