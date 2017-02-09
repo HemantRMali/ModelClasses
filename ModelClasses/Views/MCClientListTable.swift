@@ -10,7 +10,7 @@ import UIKit
 
 class MCClientListTable: UITableView {
     
-    var dataSourceArray = [client]() {
+    var dataSourceArray = [ContactsList]() {
         didSet{
             reloadData()
             self.setContentOffset(CGPoint(x: 0, y: 0), animated: true)

@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tblClientList: MCClientListTable!
     
-    var clients : [client] = []
-    var jsonResponseClientList : JSON? = nil
+    var clients : [ContactsList] = []
+    //var jsonResponseClientList : JSON? = nil
     
     override func viewDidLoad() {
         
@@ -29,8 +29,9 @@ class ViewController: UIViewController {
     func callWebserviceTOGetClientList(){
         if isInternetAvailable {
             var discParameters = Dictionary<String, Any>()
-            let arrEntityDataList = NSMutableArray()
-            let arrRequestDataList = NSMutableArray()
+            var arrEntityDataList = Array<Any>()
+            var arrRequestDataList = Array<Any>()
+            
             
             var discRequestDataList = Dictionary<String, Any>()
             discParameters.updateValue("1436743", forKey: "partyId") //Dics
@@ -42,12 +43,13 @@ class ViewController: UIViewController {
             
             discEntityDataList .updateValue(arrRequestDataList, forKey: "requestDataList")
             
-            arrEntityDataList .add(discEntityDataList)
+            arrEntityDataList .append(discEntityDataList)
             discRequestDataList.updateValue("14004", forKey: "contactTypeId")
-            discRequestDataList.updateValue("602004,602003,602007,602011,602009,602012,602008,602001,602010,602006,602002", forKey: "stageId")
+        discRequestDataList.updateValue("602004,602003,602007,602011,602009,602012,602008,602001,602010,602006,602002", forKey: "stageId")
             
-            arrRequestDataList.add(discRequestDataList)
+            arrRequestDataList.append(discRequestDataList)
             discParameters .updateValue(arrEntityDataList, forKey: "entityDataList")
+            print(JSON(discParameters))
             let urlStr = "\(SERVER_DOMAIN_PATH)/v6/BulkDataSync"
             
             showHud()
@@ -69,9 +71,9 @@ class ViewController: UIViewController {
                         var arrTmp = Array<Any>()
                         arrTmp = discResponseData["contactsList"] as! Array
                         
-                        self.jsonResponseClientList = JSON(arrTmp)
-                        for i in 0..<self.jsonResponseClientList!.count{
-                            let singleClient = client(clientJson: self.jsonResponseClientList![i])
+                       // self.jsonResponseClientList = JSON(arrTmp)
+                        for i in 0..<arrTmp.count{
+                            let singleClient = ContactsList(clientJson: arrTmp[i] as! Dictionary<String, Any>)
                             self.clients .append(singleClient)
                         }
                         self.tblClientList.dataSourceArray = self.clients
