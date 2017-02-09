@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             
             arrRequestDataList.append(discRequestDataList)
             discParameters .updateValue(arrEntityDataList, forKey: "entityDataList")
-            print(JSON(discParameters))
+            //print(JSON(discParameters))
             let urlStr = "\(SERVER_DOMAIN_PATH)/v6/BulkDataSync"
             
             showHud()
@@ -57,23 +57,18 @@ class ViewController: UIViewController {
                 if isSuccess {
                     self.hideHud()
                     if responseData.value(forKey: "status") as! String == "success"{
-                        var discResponseObject = Dictionary<String, Any>()
-                        discResponseObject = (responseData.value(forKey: "responseObject")! as AnyObject) as! Dictionary
                         
-                        var arrEntityDataList = Array<Any>()
-                        arrEntityDataList =  discResponseObject["entityDataList"] as!
-                        Array
-                        let tempDic = arrEntityDataList[0] as! Dictionary<String, Any>
-                        let responseDataDic = tempDic["responseData"] as! Dictionary<String, Any>
-                        var discResponseData = Dictionary<String, Any>()
-                        discResponseData = responseDataDic["responseObject"] as! Dictionary<String, Any>
+                        let discResponseData = ResponseData(fromDictionary: responseData as! Dictionary<String, Any>)
+                        
+                        var discResponseObject = Dictionary<String, Any>()
+                        discResponseObject = discResponseData.responseObject.toDictionary()
                         
                         var arrTmp = Array<Any>()
-                        arrTmp = discResponseData["contactsList"] as! Array
+                        arrTmp = discResponseObject["contactsList"] as! Array
                         
                        // self.jsonResponseClientList = JSON(arrTmp)
                         for i in 0..<arrTmp.count{
-                            let singleClient = ContactsList(clientJson: arrTmp[i] as! Dictionary<String, Any>)
+                            let singleClient = ContactsList(fromDictionary: arrTmp[i] as! NSDictionary)
                             self.clients .append(singleClient)
                         }
                         self.tblClientList.dataSourceArray = self.clients

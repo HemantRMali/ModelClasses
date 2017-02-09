@@ -30,7 +30,7 @@ class ResponseObject : NSObject, NSCoding{
 		contactsList = [ContactsList]()
 		if let contactsListArray = dictionary["contactsList"]{
 			for dic in contactsListArray as! Array<Dictionary<String, Any>>{
-				let value = ContactsList(fromDictionary: dic )
+				let value = ContactsList(fromDictionary: dic as NSDictionary)
 				contactsList.append(value)
 			}
 		}
@@ -60,8 +60,8 @@ class ResponseObject : NSObject, NSCoding{
 		if contactsList != nil{
 			var dictionaryElements = [Dictionary<String, Any>]()
 			for contactsListElement in contactsList {
-				dictionaryElements.append(contactsListElement.toDictionary())
-			}
+				dictionaryElements.append(contactsListElement.toDictionary() as! Dictionary<String, Any>)
+            }
 			dictionary["contactsList"] = dictionaryElements
 		}
 		if entityDataList != nil{

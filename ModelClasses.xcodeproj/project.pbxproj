@@ -13,6 +13,12 @@
 		4109ABFC1E40A5E30018BDB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4109ABFA1E40A5E30018BDB7 /* LaunchScreen.storyboard */; };
 		4109ABFD1E40A5E30018BDB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4109ABFB1E40A5E30018BDB7 /* Main.storyboard */; };
 		4109ABFF1E40A60D0018BDB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4109ABFE1E40A60D0018BDB7 /* ViewController.swift */; };
+		416BC3501E4CA80300A942EB /* ContactSummaryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416BC3491E4CA80300A942EB /* ContactSummaryList.swift */; };
+		416BC3511E4CA80300A942EB /* DocumentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416BC34A1E4CA80300A942EB /* DocumentList.swift */; };
+		416BC3521E4CA80300A942EB /* EntityDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416BC34B1E4CA80300A942EB /* EntityDataList.swift */; };
+		416BC3531E4CA80300A942EB /* NomineeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416BC34C1E4CA80300A942EB /* NomineeList.swift */; };
+		416BC3541E4CA80300A942EB /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416BC34D1E4CA80300A942EB /* ResponseData.swift */; };
+		416BC3551E4CA80300A942EB /* ResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416BC34E1E4CA80300A942EB /* ResponseObject.swift */; };
 		41947F791E41D402005C2BF9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41947F781E41D402005C2BF9 /* WebService.swift */; };
 		41C6084F1E4B039C00A4A6F6 /* Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6084E1E4B039C00A4A6F6 /* Extenstions.swift */; };
 		41D254871E4457FF00ABA692 /* MCClientListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D254861E4457FF00ABA692 /* MCClientListCell.swift */; };
@@ -35,6 +41,12 @@
 		4109ABFA1E40A5E30018BDB7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4109ABFB1E40A5E30018BDB7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4109ABFE1E40A60D0018BDB7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		416BC3491E4CA80300A942EB /* ContactSummaryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSummaryList.swift; sourceTree = "<group>"; };
+		416BC34A1E4CA80300A942EB /* DocumentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentList.swift; sourceTree = "<group>"; };
+		416BC34B1E4CA80300A942EB /* EntityDataList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityDataList.swift; sourceTree = "<group>"; };
+		416BC34C1E4CA80300A942EB /* NomineeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomineeList.swift; sourceTree = "<group>"; };
+		416BC34D1E4CA80300A942EB /* ResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		416BC34E1E4CA80300A942EB /* ResponseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObject.swift; sourceTree = "<group>"; };
 		41947F781E41D402005C2BF9 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		41C6084E1E4B039C00A4A6F6 /* Extenstions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extenstions.swift; sourceTree = "<group>"; };
 		41D254861E4457FF00ABA692 /* MCClientListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCClientListCell.swift; sourceTree = "<group>"; };
@@ -46,7 +58,7 @@
 		41D255861E44C1E600ABA692 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		41D255871E44C1E600ABA692 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
 		41D255911E44C25F00ABA692 /* SharedInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedInstance.swift; sourceTree = "<group>"; };
-		41EE2D071E4C677000128E4E /* ContactsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsList.swift; sourceTree = "<group>"; };
+		41EE2D071E4C677000128E4E /* ContactsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsList.swift; path = ../ContactsList.swift; sourceTree = "<group>"; };
 		90FF838D3FA80BB337CFD495 /* Pods-ModelClasses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelClasses.release.xcconfig"; path = "Pods/Target Support Files/Pods-ModelClasses/Pods-ModelClasses.release.xcconfig"; sourceTree = "<group>"; };
 		E660C9FAFE085DCECAE6B8F6 /* Pods_ModelClasses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModelClasses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -106,11 +118,11 @@
 		4109ABF21E40A5410018BDB7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				416BC3471E4CA80300A942EB /* ClientList */,
 				41D255901E44C24D00ABA692 /* SharedInstance */,
 				41D2558B1E44C21900ABA692 /* Extentions */,
 				41D255821E44C1E600ABA692 /* HelperClass */,
 				41D2557F1E44C1B300ABA692 /* Constant */,
-				41EE2D071E4C677000128E4E /* ContactsList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,6 +153,20 @@
 				4109ABFB1E40A5E30018BDB7 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		416BC3471E4CA80300A942EB /* ClientList */ = {
+			isa = PBXGroup;
+			children = (
+				41EE2D071E4C677000128E4E /* ContactsList.swift */,
+				416BC3491E4CA80300A942EB /* ContactSummaryList.swift */,
+				416BC34A1E4CA80300A942EB /* DocumentList.swift */,
+				416BC34B1E4CA80300A942EB /* EntityDataList.swift */,
+				416BC34C1E4CA80300A942EB /* NomineeList.swift */,
+				416BC34D1E4CA80300A942EB /* ResponseData.swift */,
+				416BC34E1E4CA80300A942EB /* ResponseObject.swift */,
+			);
+			path = ClientList;
 			sourceTree = "<group>";
 		};
 		41947F771E41D402005C2BF9 /* WebServices */ = {
@@ -336,16 +362,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416BC3501E4CA80300A942EB /* ContactSummaryList.swift in Sources */,
 				41D2548B1E4462E900ABA692 /* MCClientListTable.swift in Sources */,
 				4109ABFF1E40A60D0018BDB7 /* ViewController.swift in Sources */,
+				416BC3531E4CA80300A942EB /* NomineeList.swift in Sources */,
 				41D255891E44C1E600ABA692 /* MBProgressHUD.m in Sources */,
+				416BC3511E4CA80300A942EB /* DocumentList.swift in Sources */,
 				41D255811E44C1B300ABA692 /* Constant.swift in Sources */,
+				416BC3551E4CA80300A942EB /* ResponseObject.swift in Sources */,
 				41D2558A1E44C1E600ABA692 /* README.mdown in Sources */,
+				416BC3541E4CA80300A942EB /* ResponseData.swift in Sources */,
 				4109ABF61E40A57B0018BDB7 /* AppDelegate.swift in Sources */,
 				41D254871E4457FF00ABA692 /* MCClientListCell.swift in Sources */,
 				41947F791E41D402005C2BF9 /* WebService.swift in Sources */,
 				41C6084F1E4B039C00A4A6F6 /* Extenstions.swift in Sources */,
 				41EE2D081E4C677000128E4E /* ContactsList.swift in Sources */,
+				416BC3521E4CA80300A942EB /* EntityDataList.swift in Sources */,
 				41D255921E44C25F00ABA692 /* SharedInstance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
