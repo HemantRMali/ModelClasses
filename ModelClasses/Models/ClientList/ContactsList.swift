@@ -82,7 +82,7 @@ class ContactsList : NSObject, NSCoding{
 	/**
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
-	init(fromDictionary dictionary: NSDictionary){
+	init(fromDictionary dictionary: Dictionary<String, Any>){
 		accountOpen = dictionary["accountOpen"] as? Int
 		accountOpenDate = dictionary["accountOpenDate"] as? String
 		accountOpeningFlag = dictionary["accountOpeningFlag"] as? String
@@ -103,7 +103,7 @@ class ContactsList : NSObject, NSCoding{
 		dematNo = dictionary["dematNo"] as? String
 		dob = dictionary["dob"] as? String
 		documentList = [DocumentList]()
-		if let documentListArray = dictionary["documentList"] as? [NSDictionary]{
+		if case let documentListArray as Array<Any> = dictionary["documentList"]{
 			for dic in documentListArray{
 				let value = DocumentList(fromDictionary: dic as! Dictionary<String, Any>)
 				documentList.append(value)
@@ -130,7 +130,7 @@ class ContactsList : NSObject, NSCoding{
 		motherMiddleName = dictionary["motherMiddleName"] as? String
 		motherSolutaion = dictionary["motherSolutaion"] as? String
 		nomineeList = [NomineeList]()
-		if let nomineeListArray = dictionary["nomineeList"] as? [NSDictionary]{
+        if let nomineeListArray : Array<Any> = dictionary["nomineeList"] as! Array<Any>?{
 			for dic in nomineeListArray{
 				let value = NomineeList(fromDictionary: dic as! Dictionary<String, Any>)
 				nomineeList.append(value)
@@ -165,11 +165,11 @@ class ContactsList : NSObject, NSCoding{
 	}
 
 	/**
-	 * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
+	 * Returns all the available property values in the form of Dictionary object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
-	func toDictionary() -> NSDictionary
+	func toDictionary() -> Dictionary<String, Any>
 	{
-		var dictionary = NSMutableDictionary()
+        var dictionary : Dictionary = Dictionary<String,Any>()
 		if accountOpen != nil{
 			dictionary["accountOpen"] = accountOpen
 		}
@@ -228,9 +228,9 @@ class ContactsList : NSObject, NSCoding{
 			dictionary["dob"] = dob
 		}
 		if documentList != nil{
-			var dictionaryElements = [NSDictionary]()
+			var dictionaryElements = [Dictionary<String, Any>]()
 			for documentListElement in documentList {
-				dictionaryElements.append(documentListElement.toDictionary() as NSDictionary)
+				dictionaryElements.append(documentListElement.toDictionary() as Dictionary)
 			}
 			dictionary["documentList"] = dictionaryElements
 		}
@@ -295,9 +295,9 @@ class ContactsList : NSObject, NSCoding{
 			dictionary["motherSolutaion"] = motherSolutaion
 		}
 		if nomineeList != nil{
-			var dictionaryElements = [NSDictionary]()
+			var dictionaryElements = [Dictionary<String, Any>]()
 			for nomineeListElement in nomineeList {
-				dictionaryElements.append(nomineeListElement.toDictionary() as NSDictionary)
+				dictionaryElements.append(nomineeListElement.toDictionary() as Dictionary)
 			}
 			dictionary["nomineeList"] = dictionaryElements
 		}

@@ -66,9 +66,8 @@ class ViewController: UIViewController {
                         var arrTmp = Array<Any>()
                         arrTmp = discResponseObject["contactsList"] as! Array
                         
-                       // self.jsonResponseClientList = JSON(arrTmp)
-                        for i in 0..<arrTmp.count{
-                            let singleClient = ContactsList(fromDictionary: arrTmp[i] as! NSDictionary)
+                       for i in 0..<arrTmp.count{
+                            let singleClient = ContactsList(fromDictionary: arrTmp[i] as! Dictionary<String, Any>)
                             self.clients .append(singleClient)
                         }
                         self.tblClientList.dataSourceArray = self.clients
