@@ -74,7 +74,7 @@ class ViewController: UIViewController {
                         let contactList  : Array<Any> = resData.responseObject.entityDataList[0].responseData.responseObject.contactsList
                         
                         for i in 0..<contactList.count{
-                            let singleClient = contactList1[i]
+                            let singleClient = contactList[i]
                             self.clients .append(singleClient as! ContactsList)
                         }
                         self.tblClientList.dataSourceArray = self.clients
