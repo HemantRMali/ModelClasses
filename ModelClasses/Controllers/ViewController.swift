@@ -13,28 +13,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var tblClientList: MCClientListTable!
     
     var clients : [ContactsList] = []
-    //var jsonResponseClientList : JSON? = nil
     
+    //MARK:- ViewController Life Cycle
     override func viewDidLoad() {
         
         super.viewDidLoad()
         callWebserviceTOGetClientList()
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    //MARK:- IBActions
     @IBAction func actionReload(_ sender: UIButton) {
         
         self.clients = []
         callWebserviceTOGetClientList()
     }
+    
     func callWebserviceTOGetClientList(){
         if isInternetAvailable {
             var discParameters = Dictionary<String, Any>()
-            var arrEntityDataList = Array<Any>()
-            var arrRequestDataList = Array<Any>()
+            let arrEntityDataList = NSMutableArray()
+            let arrRequestDataList = NSMutableArray()
             
             
             var discRequestDataList = Dictionary<String, Any>()
-            discParameters.updateValue("1436743", forKey: "partyId") //Dics
+            discParameters.updateValue("1436743", forKey: "partyId") //1442405
             
             var discEntityDataList = Dictionary<String, Any>()
             discEntityDataList .updateValue("clientListForRM", forKey: "entityName")
@@ -43,11 +49,11 @@ class ViewController: UIViewController {
             
             discEntityDataList .updateValue(arrRequestDataList, forKey: "requestDataList")
             
-            arrEntityDataList .append(discEntityDataList)
+            arrEntityDataList .add(discEntityDataList)
             discRequestDataList.updateValue("14004", forKey: "contactTypeId")
         discRequestDataList.updateValue("602004,602003,602007,602011,602009,602012,602008,602001,602010,602006,602002", forKey: "stageId")
             
-            arrRequestDataList.append(discRequestDataList)
+            arrRequestDataList.add(discRequestDataList)
             discParameters .updateValue(arrEntityDataList, forKey: "entityDataList")
             //print(JSON(discParameters))
             let urlStr = "\(SERVER_DOMAIN_PATH)/v6/BulkDataSync"
@@ -58,17 +64,18 @@ class ViewController: UIViewController {
                     self.hideHud()
                     if responseData.value(forKey: "status") as! String == "success"{
                         
-                        let discResponseData = ResponseData(fromDictionary: responseData as! Dictionary<String, Any>)
+                        let resData = ResponseData.init(fromDictionary: responseData as! Dictionary<String, Any>)
+                        /*let resObj = resData.responseObject
+                        let entityDataList = resObj?.entityDataList[0]
+                        let resDataEntity  = entityDataList?.responseData
+                        let resObjEntity   = resDataEntity?.responseObject
+                        let contactList    : Array<Any> = (resObjEntity?.contactsList)!*/
                         
-                        var discResponseObject = Dictionary<String, Any>()
-                        discResponseObject = discResponseData.responseObject.toDictionary()
+                        let contactList  : Array<Any> = resData.responseObject.entityDataList[0].responseData.responseObject.contactsList
                         
-                        var arrTmp = Array<Any>()
-                        arrTmp = discResponseObject["contactsList"] as! Array
-                        
-                       for i in 0..<arrTmp.count{
-                            let singleClient = ContactsList(fromDictionary: arrTmp[i] as! Dictionary<String, Any>)
-                            self.clients .append(singleClient)
+                        for i in 0..<contactList.count{
+                            let singleClient = contactList1[i]
+                            self.clients .append(singleClient as! ContactsList)
                         }
                         self.tblClientList.dataSourceArray = self.clients
                     }else {
@@ -89,10 +96,7 @@ class ViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
     
 }
 
